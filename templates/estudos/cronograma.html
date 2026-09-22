@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Cronograma · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div>
+    <h1>Cronograma</h1>
+    <p class="muted">
+      Duração das videoaulas importada do Gran (ex.: <code>00:31:42</code>).
+      No cronograma somamos +{{ plano.minutos_extra_questoes }} min por aula para questões.
+    </p>
+  </div>
+
+  <div class="grid grid-4">
+    <div class="card">
+      <div class="stat-value">{{ plano.horas_por_dia }}h</div>
+      <div class="stat-label">Meta diária</div>
+    </div>
+    <div class="card">
+      <div class="stat-value">{{ resumo.dias_restantes|default:"—" }}</div>
+      <div class="stat-label">Dias de estudo restantes</div>
+    </div>
+    <div class="card">
+      <div class="stat-value">{{ resumo.horas_restantes|default:"—" }}h</div>
+      <div class="stat-label">Carga restante estimada</div>
+    </div>
+    <div class="card">
+      <div class="stat-value">{% if resumo.data_fim %}{{ resumo.data_fim|date:"d/m" }}{% else %}—{% endif %}</div>
+      <div class="stat-label">Previsão de término</div>
+    </div>
+  </div>
+
+  <form method="post" class="card stack">
+    {% csrf_token %}
+    <h2>Configurar plano</h2>
+    <div class="form-grid">
+      <label>
+        Minutos por dia (líquidos)
+        <input type="number" name="minutos_por_dia" min="30" step="15" value="{{ plano.minutos_por_dia }}" required>
+      </label>
+      <label>
+        Estimativa fallback (sem duração)
+        <input type="number" name="minutos_padrao_topico" min="10" step="5" value="{{ plano.minutos_padrao_topico }}" required>
+      </label>
+      <label>
+        Extra para questões (min/aula)
+        <input type="number" name="minutos_extra_questoes" min="0" step="5" value="{{ plano.minutos_extra_questoes }}" required>
+      </label>
+      <label>
+        Data de início
+        <input type="date" name="data_inicio" value="{{ plano.data_inicio|date:'Y-m-d' }}" required>
+      </label>
+      <label>
+        Distribuição
+        <select name="modo_distribuicao">
+          <option value="intercalar" {% if plano.modo_distribuicao == "intercalar" %}selected{% endif %}>Intercalar disciplinas</option>
+          <option value="sequencial" {% if plano.modo_distribuicao == "sequencial" %}selected{% endif %}>Ordem do edital</option>
+        </select>
+      </label>
+    </div>
+
+    <fieldset class="dias-estudo">
+      <legend>Dias de estudo</legend>
+      <div class="actions">
+        {% for valor, nome in dias_opcoes %}
+        <label class="check">
+          <input type="checkbox" name="dias_estudo" value="{{ valor }}"
+            {% if valor in plano.dias_estudo %}checked{% endif %}>
+          {{ nome }}
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <label class="check">
+      <input type="checkbox" name="aplicar_padrao" value="1">
+      Aplicar o fallback só nas aulas <strong>sem</strong> duração de vídeo
+    </label>
+
+    <div class="actions">
+      <button type="submit" name="acao" value="salvar" class="btn secondary">Salvar plano</button>
+      <button type="submit" name="acao" value="gerar">Gerar / regenerar cronograma</button>
+    </div>
+  </form>
+
+  {% if dias %}
+  <div class="stack">
+    <h2>Calendário gerado</h2>
+    {% for dia in dias %}
+    <div class="card">
+      <div class="actions" style="justify-content: space-between;">
+        <strong>{{ dia.dia_nome }}, {{ dia.data|date:"d/m/Y" }}</strong>
+        <span class="muted">{{ dia.minutos }} min · {{ dia.concluidos }}/{{ dia.total }} feitos</span>
+      </div>
+      <ul class="list" style="margin-top:0.75rem">
+        {% for item in dia.itens %}
+        <li>
+          <div>
+            <strong>{{ item.topico.titulo }}</strong>
+            <div class="meta">
+              {{ item.topico.disciplina.nome }} ·
+              {% if item.topico.minutos_video %}vídeo {{ item.topico.minutos_video }} min + questões · {% endif %}
+              {{ item.minutos_planejados }} min total
+              <span class="badge {{ item.topico.status }}">{{ item.topico.get_status_display }}</span>
+              {% if item.concluido %}<span class="badge completo">concluído</span>{% endif %}
+            </div>
+          </div>
+          {% if not item.concluido %}
+          <a class="btn" href="{% url 'estudos:iniciar_sessao' %}?topico={{ item.topico_id }}">Sessão</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="card">
+    <p class="muted" style="margin:0">Configure o plano e clique em <strong>Gerar cronograma</strong>.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

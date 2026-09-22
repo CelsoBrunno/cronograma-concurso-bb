@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Fila do dia · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div>
+    <h1>Fila do dia</h1>
+    <p class="muted">Revisões vencidas → estudando → pendentes (repetição espaçada simples).</p>
+  </div>
+
+  {% if sessao_aberta %}
+  <div class="card actions">
+    <strong>Há uma sessão aberta.</strong>
+    <a class="btn" href="{% url 'estudos:sessao' sessao_aberta.pk %}">Continuar sessão</a>
+  </div>
+  {% endif %}
+
+  <ul class="list">
+    {% for t in fila %}
+    <li>
+      <div>
+        <strong>{{ t.titulo }}</strong>
+        <div class="meta">
+          {{ t.disciplina.nome }} ·
+          <span class="badge {{ t.status }}">{{ t.get_status_display }}</span>
+          {% if t.proxima_revisao %}· próxima: {{ t.proxima_revisao|date:"d/m/Y" }}{% endif %}
+          {% if t.esta_vencido %}<span class="badge vencido">vencido</span>{% endif %}
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="{% url 'estudos:iniciar_sessao' %}?topico={{ t.id }}">Iniciar sessão</a>
+      </div>
+    </li>
+    {% empty %}
+    <li><span class="muted">Fila vazia.</span></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

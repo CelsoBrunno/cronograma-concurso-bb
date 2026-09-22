@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load l10n %}
+{% block title %}Disciplinas · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div>
+    <h1>Disciplinas</h1>
+    <p class="muted">Tópicos importados do Gran Cursos (BB Agente Comercial).</p>
+  </div>
+  <div class="grid grid-2">
+    {% for item in progresso %}
+    <a class="card" href="{% url 'estudos:disciplina' item.disciplina.id %}" style="color: inherit;">
+      <h2>{{ item.disciplina.nome }}</h2>
+      <p class="muted">{{ item.cobertos }}/{{ item.total }} cobertos · {{ item.percentual }}%</p>
+      <div class="bar{% if item.percentual >= 100 %} is-complete{% endif %}"><span style="width: {{ item.percentual|unlocalize }}%"></span></div>
+    </a>
+    {% empty %}
+    <div class="card">Rode <code>python manage.py seed_topicos</code></div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

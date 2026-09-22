@@ -1,0 +1,3268 @@
+[
+  {
+    "ordem": 1,
+    "nome": "Língua Portuguesa",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Apresentação e Ortografia",
+        "duracao": "00:31:42",
+        "segundos": 1902,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Ortografia - Acentuação",
+        "duracao": "00:35:37",
+        "segundos": 2137,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Ortografia - Acentuação - Exercícios",
+        "duracao": "00:51:36",
+        "segundos": 3096,
+        "minutos_video": 52,
+        "minutos_estimados": 67
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Ortografia - Hífen",
+        "duracao": "00:32:46",
+        "segundos": 1966,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Ortografia - Hífen - Exercícios",
+        "duracao": "00:27:13",
+        "segundos": 1633,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - Morfologia",
+        "duracao": "00:25:29",
+        "segundos": 1529,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - Morfologia II",
+        "duracao": "00:43:25",
+        "segundos": 2605,
+        "minutos_video": 43,
+        "minutos_estimados": 58
+      },
+      {
+        "ordem": 8,
+        "titulo": "8 - Morfologia III",
+        "duracao": "00:46:40",
+        "segundos": 2800,
+        "minutos_video": 47,
+        "minutos_estimados": 62
+      },
+      {
+        "ordem": 9,
+        "titulo": "9 - Morfologia IV",
+        "duracao": "00:41:03",
+        "segundos": 2463,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 10,
+        "titulo": "10 - Morfologia Exercícios",
+        "duracao": "00:52:20",
+        "segundos": 3140,
+        "minutos_video": 52,
+        "minutos_estimados": 67
+      },
+      {
+        "ordem": 11,
+        "titulo": "11 - Introdução à Sintaxe",
+        "duracao": "00:34:23",
+        "segundos": 2063,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 12,
+        "titulo": "12 - Sujeito",
+        "duracao": "00:38:02",
+        "segundos": 2282,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 13,
+        "titulo": "5 - Compreensão e Interpretação de Textos - Coesão Lexical, Referencial e Sequencial",
+        "duracao": "00:39:36",
+        "segundos": 2376,
+        "minutos_video": 40,
+        "minutos_estimados": 55
+      },
+      {
+        "ordem": 14,
+        "titulo": "6 - Compreensão e Interpretação de Diversos Tipos de Textos Verbais, Não Verbais",
+        "duracao": "00:30:59",
+        "segundos": 1859,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 15,
+        "titulo": "7 - Compreensão e Interpretação de Textos - Compreensão e Interpretação de Diversos Tipos de Textos Literários",
+        "duracao": "00:37:13",
+        "segundos": 2233,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 16,
+        "titulo": "8 - Compreensão e Interpretação de Textos - Análise, compreensão e interpretação de diversos tipos de textos não literários.",
+        "duracao": "00:36:44",
+        "segundos": 2204,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 17,
+        "titulo": "9 - Compreensão e Interpretação de Textos - Análise, compreensão e interpretação de diversos tipos de textos verbais, não verbais, literários e não literários. Informações literais e inferências possíveis. Ponto de vista do autor. Tipos e gêneros textuais.",
+        "duracao": "00:30:42",
+        "segundos": 1842,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 18,
+        "titulo": "10 - Compreensão e Interpretação de Textos - Análise, compreensão e interpretação de diversos tipos de textos verbais, não verbais, literários e não literários. Informações literais e inferências possíveis. Ponto de vista do autor. Narração. Discurso direto, indireto e indireto livre.",
+        "duracao": "00:41:16",
+        "segundos": 2476,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 19,
+        "titulo": "11 - Compreensão e Interpretação de Textos - Análise, compreensão e interpretação de diversos tipos de textos verbais, não verbais, literários e não literários. Informações literais e inferências possíveis. Ponto de vista do autor. Descrição.",
+        "duracao": "00:40:41",
+        "segundos": 2441,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 20,
+        "titulo": "12 - Compreensão e Interpretação de Textos - Dissertação argumentativa: ponto de vista do autor e estratégias argumentativas",
+        "duracao": "00:41:48",
+        "segundos": 2508,
+        "minutos_video": 42,
+        "minutos_estimados": 57
+      },
+      {
+        "ordem": 21,
+        "titulo": "13 - Compreensão e Interpretação de Textos - Estratégias argumentativas",
+        "duracao": "00:36:18",
+        "segundos": 2178,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 22,
+        "titulo": "14 - Compreensão e Interpretação de Textos - Texto: elementos da comunicação e funções da linguagem",
+        "duracao": "00:31:32",
+        "segundos": 1892,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 23,
+        "titulo": "15 - Compreensão e Interpretação de Textos - Texto: denotação (sentido lógico), conotação (sentido figurado) e figuras de linguagem",
+        "duracao": "00:39:40",
+        "segundos": 2380,
+        "minutos_video": 40,
+        "minutos_estimados": 55
+      },
+      {
+        "ordem": 24,
+        "titulo": "16 - Compreensão e Interpretação de Textos - Semântica - Significação Contextual de Palavras e Expressões, Sinonímia, Paráfrase, Antonímia, Paronímia, Homonímia, Polissemia, Ambiguidade",
+        "duracao": "00:48:15",
+        "segundos": 2895,
+        "minutos_video": 48,
+        "minutos_estimados": 63
+      },
+      {
+        "ordem": 25,
+        "titulo": "17 - Compreensão e Interpretação de Textos - Texto e Variação Linguística: Norma Culta",
+        "duracao": "00:36:49",
+        "segundos": 2209,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      }
+    ]
+  },
+  {
+    "ordem": 2,
+    "nome": "Língua Inglesa",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Língua Inglesa - Alma e Perfil da Prova de Inglês",
+        "duracao": "00:30:57",
+        "segundos": 1857,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Língua Inglesa - Como Estudar Inglês e Resolver a Prova",
+        "duracao": "00:32:38",
+        "segundos": 1958,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Língua Inglesa - Inglês não é de trás para frente",
+        "duracao": "00:31:22",
+        "segundos": 1882,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Língua Inglesa - Conceito de Lista de Verbos",
+        "duracao": "00:33:00",
+        "segundos": 1980,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Língua Inglesa - O Famoso Verbo To Be",
+        "duracao": "00:29:52",
+        "segundos": 1792,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 6,
+        "titulo": "7 - Língua Inglesa - Comparativos e Superlativos de Superioridade",
+        "duracao": "00:32:36",
+        "segundos": 1956,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 7,
+        "titulo": "8 - Língua Inglesa - Sinonímia",
+        "duracao": "00:25:47",
+        "segundos": 1547,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 8,
+        "titulo": "9 - Língua Inglesa - Simple Present",
+        "duracao": "00:28:46",
+        "segundos": 1726,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 9,
+        "titulo": "10 - Língua Inglesa - Simple Present - Modern Sentences",
+        "duracao": "00:31:38",
+        "segundos": 1898,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 10,
+        "titulo": "11 - Língua Inglesa - Simple Future and Going To Future",
+        "duracao": "00:31:26",
+        "segundos": 1886,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 11,
+        "titulo": "12 - Língua Inglesa - Simple Past",
+        "duracao": "00:31:28",
+        "segundos": 1888,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 12,
+        "titulo": "13 - Língua Inglesa - Verbos Auxiliares - Perguntas",
+        "duracao": "00:34:53",
+        "segundos": 2093,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 13,
+        "titulo": "14 - Língua Inglesa - Verbos Auxiliares - Negativas",
+        "duracao": "00:30:27",
+        "segundos": 1827,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 14,
+        "titulo": "15 - Língua Inglesa - Continuous Tenses",
+        "duracao": "00:32:10",
+        "segundos": 1930,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 15,
+        "titulo": "16 - ING",
+        "duracao": "00:31:48",
+        "segundos": 1908,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 16,
+        "titulo": "17 - ING II",
+        "duracao": "00:33:42",
+        "segundos": 2022,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 17,
+        "titulo": "18 - If Sentences",
+        "duracao": "00:37:00",
+        "segundos": 2220,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 18,
+        "titulo": "19 - If Sentences II",
+        "duracao": "00:32:31",
+        "segundos": 1951,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 19,
+        "titulo": "20 - Can, Could, Able",
+        "duracao": "00:28:01",
+        "segundos": 1681,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 20,
+        "titulo": "21 - May - Might",
+        "duracao": "00:32:10",
+        "segundos": 1930,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 21,
+        "titulo": "22 - Should - Ought to",
+        "duracao": "00:33:37",
+        "segundos": 2017,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      }
+    ]
+  },
+  {
+    "ordem": 3,
+    "nome": "Matemática",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Conjuntos Numéricos",
+        "duracao": "00:42:34",
+        "segundos": 2554,
+        "minutos_video": 43,
+        "minutos_estimados": 58
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Intervalos Reais",
+        "duracao": "00:35:59",
+        "segundos": 2159,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Expressões Numéricas",
+        "duracao": "00:31:55",
+        "segundos": 1915,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Números Decimais",
+        "duracao": "00:32:56",
+        "segundos": 1976,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Frações I",
+        "duracao": "00:30:49",
+        "segundos": 1849,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - Frações II",
+        "duracao": "00:28:47",
+        "segundos": 1727,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - Operação Com Números Reais I",
+        "duracao": "00:37:59",
+        "segundos": 2279,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 8,
+        "titulo": "8 - Operação Com Números Reais II",
+        "duracao": "00:24:51",
+        "segundos": 1491,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 9,
+        "titulo": "9 - Potenciação I",
+        "duracao": "00:24:21",
+        "segundos": 1461,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 10,
+        "titulo": "10 - Potenciação II",
+        "duracao": "00:38:14",
+        "segundos": 2294,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 11,
+        "titulo": "11 - Radiciação I",
+        "duracao": "00:33:17",
+        "segundos": 1997,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 12,
+        "titulo": "12 - Radiciação II",
+        "duracao": "00:25:00",
+        "segundos": 1500,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 13,
+        "titulo": "1 - Geometria Plana - Unidades de Medidas",
+        "duracao": "00:35:17",
+        "segundos": 2117,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 14,
+        "titulo": "2 - Teoria dos Conjuntos I",
+        "duracao": "00:44:59",
+        "segundos": 2699,
+        "minutos_video": 45,
+        "minutos_estimados": 60
+      },
+      {
+        "ordem": 15,
+        "titulo": "3 - Teoria dos Conjuntos II",
+        "duracao": "00:44:48",
+        "segundos": 2688,
+        "minutos_video": 45,
+        "minutos_estimados": 60
+      },
+      {
+        "ordem": 16,
+        "titulo": "4 - Teoria dos Conjuntos III",
+        "duracao": "00:41:04",
+        "segundos": 2464,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 17,
+        "titulo": "5 - Noções de Função I",
+        "duracao": "00:39:27",
+        "segundos": 2367,
+        "minutos_video": 39,
+        "minutos_estimados": 54
+      },
+      {
+        "ordem": 18,
+        "titulo": "6 - Noções de Função II",
+        "duracao": "00:33:31",
+        "segundos": 2011,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 19,
+        "titulo": "7 - Função do 1° Grau I",
+        "duracao": "00:36:07",
+        "segundos": 2167,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 20,
+        "titulo": "8 - Função do 1° Grau II",
+        "duracao": "00:33:32",
+        "segundos": 2012,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 21,
+        "titulo": "9 - Função do 2° Grau I",
+        "duracao": "00:37:02",
+        "segundos": 2222,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 22,
+        "titulo": "10 - Função do 2° Grau II",
+        "duracao": "00:34:44",
+        "segundos": 2084,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 23,
+        "titulo": "11 - Função do 2° Grau III",
+        "duracao": "00:30:39",
+        "segundos": 1839,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 24,
+        "titulo": "12 - Função Exponencial",
+        "duracao": "00:31:24",
+        "segundos": 1884,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 25,
+        "titulo": "13 - Função Logarítmica",
+        "duracao": "00:30:28",
+        "segundos": 1828,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 26,
+        "titulo": "1 - Matrizes - Conceitos Iniciais",
+        "duracao": "00:29:50",
+        "segundos": 1790,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 27,
+        "titulo": "2 - Matrizes - Operações",
+        "duracao": "00:25:12",
+        "segundos": 1512,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 28,
+        "titulo": "3 - Determinantes",
+        "duracao": "00:35:22",
+        "segundos": 2122,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 29,
+        "titulo": "1 - Sistemas de Equações do 1º Grau",
+        "duracao": "00:29:07",
+        "segundos": 1747,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 30,
+        "titulo": "2 - Sistemas Lineares",
+        "duracao": "00:30:55",
+        "segundos": 1855,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 31,
+        "titulo": "3 - Sistemas Lineares II",
+        "duracao": "00:36:02",
+        "segundos": 2162,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 32,
+        "titulo": "4 - Sequências",
+        "duracao": "00:44:44",
+        "segundos": 2684,
+        "minutos_video": 45,
+        "minutos_estimados": 60
+      },
+      {
+        "ordem": 33,
+        "titulo": "5 - Progressão Aritmética",
+        "duracao": "00:38:42",
+        "segundos": 2322,
+        "minutos_video": 39,
+        "minutos_estimados": 54
+      },
+      {
+        "ordem": 34,
+        "titulo": "6 - Progressão Geométrica I",
+        "duracao": "00:30:07",
+        "segundos": 1807,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 35,
+        "titulo": "7 - Progressão Geométrica II",
+        "duracao": "00:29:31",
+        "segundos": 1771,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 36,
+        "titulo": "8 - Conceitos Iniciais: Proposição lógica",
+        "duracao": "00:48:30",
+        "segundos": 2910,
+        "minutos_video": 48,
+        "minutos_estimados": 63
+      },
+      {
+        "ordem": 37,
+        "titulo": "9 - Tabela - Verdade",
+        "duracao": "00:37:24",
+        "segundos": 2244,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 38,
+        "titulo": "10 - Negação de Proposição Composta",
+        "duracao": "00:23:45",
+        "segundos": 1425,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 39,
+        "titulo": "11 - Equivalências Lógicas",
+        "duracao": "00:34:51",
+        "segundos": 2091,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 40,
+        "titulo": "12 - Equivalência e Negações Proposições Categóricas",
+        "duracao": "00:27:45",
+        "segundos": 1665,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      }
+    ]
+  },
+  {
+    "ordem": 4,
+    "nome": "Atualidades do Mercado Financeiro",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Os Bancos na Era Digital: Atualidade, Tendências e Desafios",
+        "duracao": "00:32:45",
+        "segundos": 1965,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Internet Banking, Office Banking e Mobile Banking; Banco Digital e Banco Digitalizado",
+        "duracao": "00:38:47",
+        "segundos": 2327,
+        "minutos_video": 39,
+        "minutos_estimados": 54
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Startup, Fintech, Bigtech",
+        "duracao": "00:45:25",
+        "segundos": 2725,
+        "minutos_video": 45,
+        "minutos_estimados": 60
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Marketplace",
+        "duracao": "00:22:01",
+        "segundos": 1321,
+        "minutos_video": 22,
+        "minutos_estimados": 37
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - SupTech e RegTech (Inovações)",
+        "duracao": "00:29:46",
+        "segundos": 1786,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - SCD e SEP",
+        "duracao": "00:44:40",
+        "segundos": 2680,
+        "minutos_video": 45,
+        "minutos_estimados": 60
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - SCD e SEP II",
+        "duracao": "00:38:08",
+        "segundos": 2288,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 8,
+        "titulo": "8 - Open Finance - Resolução Conjunta Nº 1, de 4 de Maio de 2020",
+        "duracao": "00:35:50",
+        "segundos": 2150,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 9,
+        "titulo": "9 - Shadow Banking - Sistema de Banco Sombra",
+        "duracao": "00:36:31",
+        "segundos": 2191,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 10,
+        "titulo": "10 - Novos Modelos de Negócios",
+        "duracao": "00:40:44",
+        "segundos": 2444,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 11,
+        "titulo": "11 - Novos Modelos de Negócios II",
+        "duracao": "00:31:53",
+        "segundos": 1913,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 12,
+        "titulo": "12 - Novos Modelos de Negócios III",
+        "duracao": "00:22:58",
+        "segundos": 1378,
+        "minutos_video": 23,
+        "minutos_estimados": 38
+      },
+      {
+        "ordem": 13,
+        "titulo": "13 - Arranjos de Pagamentos"
+      },
+      {
+        "ordem": 14,
+        "titulo": "14 - Arranjos de Pagamentos e Instituições e Pagamento",
+        "duracao": "00:38:51",
+        "segundos": 2331,
+        "minutos_video": 39,
+        "minutos_estimados": 54
+      },
+      {
+        "ordem": 15,
+        "titulo": "15 - Arranjos de Pagamentos e Instituições e Pagamento II",
+        "duracao": "00:31:35",
+        "segundos": 1895,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 16,
+        "titulo": "16 - Arranjos de Pagamentos - Revisões em Questões",
+        "duracao": "00:31:18",
+        "segundos": 1878,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      }
+    ]
+  },
+  {
+    "ordem": 5,
+    "nome": "Matemática Financeira",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Juros Simples",
+        "duracao": "00:33:35",
+        "segundos": 2015,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Juros Simples II",
+        "duracao": "00:32:57",
+        "segundos": 1977,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Juros Compostos",
+        "duracao": "00:33:03",
+        "segundos": 1983,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Juros Compostos II",
+        "duracao": "00:32:45",
+        "segundos": 1965,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Juros Compostos III",
+        "duracao": "00:27:10",
+        "segundos": 1630,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - Juros Compostos IV",
+        "duracao": "00:30:57",
+        "segundos": 1857,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - Descontos Simples",
+        "duracao": "00:32:06",
+        "segundos": 1926,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 8,
+        "titulo": "8 - Descontos Simples II",
+        "duracao": "00:32:03",
+        "segundos": 1923,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 9,
+        "titulo": "9 - Descontos Simples III",
+        "duracao": "00:27:47",
+        "segundos": 1667,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 10,
+        "titulo": "10 - Descontos Compostos",
+        "duracao": "00:30:16",
+        "segundos": 1816,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 11,
+        "titulo": "11 - Descontos Compostos II",
+        "duracao": "00:31:42",
+        "segundos": 1902,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 12,
+        "titulo": "12 - Dicas para Simplificar (“Cortar” ou Aproximar) Seus Cálculos",
+        "duracao": "00:29:59",
+        "segundos": 1799,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 13,
+        "titulo": "1 - Equivalência de Capitais",
+        "duracao": "00:31:49",
+        "segundos": 1909,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 14,
+        "titulo": "2 - Equivalência de Capitais II",
+        "duracao": "00:29:00",
+        "segundos": 1740,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 15,
+        "titulo": "3 - Equivalência de Capitais III",
+        "duracao": "00:25:43",
+        "segundos": 1543,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 16,
+        "titulo": "1 - Taxas",
+        "duracao": "00:28:44",
+        "segundos": 1724,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 17,
+        "titulo": "2 - Taxas II",
+        "duracao": "00:30:35",
+        "segundos": 1835,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 18,
+        "titulo": "3 - Taxas III",
+        "duracao": "00:30:24",
+        "segundos": 1824,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 19,
+        "titulo": "4 - Taxa IV",
+        "duracao": "00:31:16",
+        "segundos": 1876,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 20,
+        "titulo": "1 - Sistemas de Amortização",
+        "duracao": "00:29:15",
+        "segundos": 1755,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 21,
+        "titulo": "2 - Sistemas de Amortização II",
+        "duracao": "00:31:10",
+        "segundos": 1870,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 22,
+        "titulo": "3 - Sistemas de Amortização III",
+        "duracao": "00:32:06",
+        "segundos": 1926,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 23,
+        "titulo": "4 - Sistemas de Amortização IV",
+        "duracao": "00:26:33",
+        "segundos": 1593,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 24,
+        "titulo": "5 - Rendas",
+        "duracao": "00:35:15",
+        "segundos": 2115,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 25,
+        "titulo": "6 - Rendas II",
+        "duracao": "00:33:23",
+        "segundos": 2003,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 26,
+        "titulo": "7 - Rendas III",
+        "duracao": "00:30:56",
+        "segundos": 1856,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 27,
+        "titulo": "8 - Rendas IV",
+        "duracao": "00:30:36",
+        "segundos": 1836,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 28,
+        "titulo": "9 - Rendas V",
+        "duracao": "00:34:56",
+        "segundos": 2096,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 29,
+        "titulo": "10 - Rendas VI",
+        "duracao": "00:29:42",
+        "segundos": 1782,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 30,
+        "titulo": "11 - Taxa Interna de Retorno e Valor Presente Líquido",
+        "duracao": "00:27:53",
+        "segundos": 1673,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 31,
+        "titulo": "12 - Taxa Interna de Retorno e Valor Presente Líquido II",
+        "duracao": "00:33:52",
+        "segundos": 2032,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 32,
+        "titulo": "13 - Simulado - Matemática Financeira",
+        "duracao": "00:29:04",
+        "segundos": 1744,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 33,
+        "titulo": "14 - Simulado - Matemática Financeira II",
+        "duracao": "00:30:05",
+        "segundos": 1805,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      }
+    ]
+  },
+  {
+    "ordem": 6,
+    "nome": "Conhecimentos Bancários",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Introdução ao Sistema Financeiro",
+        "duracao": "00:36:07",
+        "segundos": 2167,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Organização do Sistema Financeiro",
+        "duracao": "00:40:53",
+        "segundos": 2453,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Estrutura do Sistema Financeiro Nacional",
+        "duracao": "00:25:22",
+        "segundos": 1522,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Revisão em Questões - Estrutura do SFN - Cesgranrio",
+        "duracao": "00:23:45",
+        "segundos": 1425,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Conselho Monetário Nacional - Organização Interna e Objetivos",
+        "duracao": "00:36:25",
+        "segundos": 2185,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - Organização Interna e Objetivos do Banco Central",
+        "duracao": "00:41:39",
+        "segundos": 2499,
+        "minutos_video": 42,
+        "minutos_estimados": 57
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - SFN - Competências do CMN",
+        "duracao": "00:43:46",
+        "segundos": 2626,
+        "minutos_video": 44,
+        "minutos_estimados": 59
+      },
+      {
+        "ordem": 8,
+        "titulo": "8 - SFN - Competências do BACEN",
+        "duracao": "00:30:23",
+        "segundos": 1823,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 9,
+        "titulo": "9 - SFN - Competências do BACEN II",
+        "duracao": "00:52:17",
+        "segundos": 3137,
+        "minutos_video": 52,
+        "minutos_estimados": 67
+      },
+      {
+        "ordem": 10,
+        "titulo": "10 - Comissão de Valores Mobiliários",
+        "duracao": "00:34:51",
+        "segundos": 2091,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 11,
+        "titulo": "1 - Segmentos do Mercado Financeiro",
+        "duracao": "00:41:18",
+        "segundos": 2478,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 12,
+        "titulo": "1 - Operações Bancárias",
+        "duracao": "00:27:22",
+        "segundos": 1642,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 13,
+        "titulo": "2 - Operações Bancárias II",
+        "duracao": "00:32:41",
+        "segundos": 1961,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 14,
+        "titulo": "3 - Definição de Depósito à Vista e a Prazo",
+        "duracao": "00:37:02",
+        "segundos": 2222,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 15,
+        "titulo": "4 - Noções Gerais de Investimento",
+        "duracao": "00:28:27",
+        "segundos": 1707,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 16,
+        "titulo": "5 - Investimentos em Renda Fixa",
+        "duracao": "00:40:57",
+        "segundos": 2457,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 17,
+        "titulo": "6 - Certificado e Recibo de Depósito Bancário - CDB e RDB",
+        "duracao": "00:28:40",
+        "segundos": 1720,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 18,
+        "titulo": "7 - Certificado de Depósito Interbancários - CDI",
+        "duracao": "00:20:52",
+        "segundos": 1252,
+        "minutos_video": 21,
+        "minutos_estimados": 36
+      },
+      {
+        "ordem": 19,
+        "titulo": "8 - Abertura e movimentação de Contas",
+        "duracao": "00:27:06",
+        "segundos": 1626,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 20,
+        "titulo": "9 - Abertura e movimentação de Contas II",
+        "duracao": "00:32:13",
+        "segundos": 1933,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 21,
+        "titulo": "10 - Contas de Pagamento",
+        "duracao": "00:23:53",
+        "segundos": 1433,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 22,
+        "titulo": "11 - Conta Poupança",
+        "duracao": "00:16:53",
+        "segundos": 1013,
+        "minutos_video": 17,
+        "minutos_estimados": 32
+      },
+      {
+        "ordem": 23,
+        "titulo": "12 - Conta Poupança II",
+        "duracao": "00:36:48",
+        "segundos": 2208,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 24,
+        "titulo": "13 - Exercícios de Revisão - Operações Bancárias",
+        "duracao": "00:16:37",
+        "segundos": 997,
+        "minutos_video": 17,
+        "minutos_estimados": 32
+      },
+      {
+        "ordem": 25,
+        "titulo": "14 - Crédito Direto ao Consumidor",
+        "duracao": "00:33:16",
+        "segundos": 1996,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 26,
+        "titulo": "15 - Crédito Direto ao Consumidor II",
+        "duracao": "00:23:42",
+        "segundos": 1422,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 27,
+        "titulo": "1 - Mercado de Capitais - Introdução",
+        "duracao": "00:32:29",
+        "segundos": 1949,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 28,
+        "titulo": "2 - Mercado de Capitais",
+        "duracao": "00:29:11",
+        "segundos": 1751,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 29,
+        "titulo": "3 - Mercado de Capitais - IPO, Folow On e OPA",
+        "duracao": "00:31:28",
+        "segundos": 1888,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 30,
+        "titulo": "4 - Mercado de Capitais - Mercado Primário e Secundário",
+        "duracao": "00:36:35",
+        "segundos": 2195,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 31,
+        "titulo": "5 - Mercado de Capitais - Tipos de Ações",
+        "duracao": "00:37:43",
+        "segundos": 2263,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 32,
+        "titulo": "6 - Mercado de Capitais - Ambientes de Negociação",
+        "duracao": "00:32:46",
+        "segundos": 1966,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 33,
+        "titulo": "7 - Operações de Underwriting",
+        "duracao": "00:42:47",
+        "segundos": 2567,
+        "minutos_video": 43,
+        "minutos_estimados": 58
+      },
+      {
+        "ordem": 34,
+        "titulo": "8 - Direitos Relativos a Ações",
+        "duracao": "00:33:35",
+        "segundos": 2015,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 35,
+        "titulo": "9 - Mercado de Capitais - Inplit e Split",
+        "duracao": "00:26:09",
+        "segundos": 1569,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 36,
+        "titulo": "10 - Commercial Papers",
+        "duracao": "00:30:51",
+        "segundos": 1851,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 37,
+        "titulo": "11 - Debêntures",
+        "duracao": "00:31:47",
+        "segundos": 1907,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 38,
+        "titulo": "12 - Debêntures II",
+        "duracao": "00:41:18",
+        "segundos": 2478,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 39,
+        "titulo": "13 - Debêntures - Exercicios",
+        "duracao": "00:16:37",
+        "segundos": 997,
+        "minutos_video": 17,
+        "minutos_estimados": 32
+      },
+      {
+        "ordem": 40,
+        "titulo": "14 - Fundos e Clubes de Investimento",
+        "duracao": "00:23:05",
+        "segundos": 1385,
+        "minutos_video": 23,
+        "minutos_estimados": 38
+      },
+      {
+        "ordem": 41,
+        "titulo": "1 - Garantias do Sistema Financeiro Nacional - Introdução",
+        "duracao": "00:32:20",
+        "segundos": 1940,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 42,
+        "titulo": "2 - Aval e Fiança",
+        "duracao": "00:34:53",
+        "segundos": 2093,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 43,
+        "titulo": "3 - Aval e Fiança II",
+        "duracao": "00:25:23",
+        "segundos": 1523,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 44,
+        "titulo": "4 - Do penhor",
+        "duracao": "00:32:59",
+        "segundos": 1979,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 45,
+        "titulo": "5 - Da Hipoteca",
+        "duracao": "00:20:39",
+        "segundos": 1239,
+        "minutos_video": 21,
+        "minutos_estimados": 36
+      },
+      {
+        "ordem": 46,
+        "titulo": "6 - Alienação Fiduciária",
+        "duracao": "00:22:57",
+        "segundos": 1377,
+        "minutos_video": 23,
+        "minutos_estimados": 38
+      },
+      {
+        "ordem": 47,
+        "titulo": "7 - Fiança Bancária",
+        "duracao": "00:24:22",
+        "segundos": 1462,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 48,
+        "titulo": "1 - Introdução ao Copom",
+        "duracao": "00:32:19",
+        "segundos": 1939,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 49,
+        "titulo": "2 - Copom I",
+        "duracao": "00:26:49",
+        "segundos": 1609,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 50,
+        "titulo": "3 - Copom II",
+        "duracao": "00:37:44",
+        "segundos": 2264,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 51,
+        "titulo": "4 - Mercado Bancário: Moeda e Política Monetária",
+        "duracao": "00:40:41",
+        "segundos": 2441,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 52,
+        "titulo": "5 - Política Monetária - Operações Compromissadas",
+        "duracao": "00:43:04",
+        "segundos": 2584,
+        "minutos_video": 43,
+        "minutos_estimados": 58
+      },
+      {
+        "ordem": 53,
+        "titulo": "6 - Efeitos da Política Monetária na Econômia",
+        "duracao": "00:42:00",
+        "segundos": 2520,
+        "minutos_video": 42,
+        "minutos_estimados": 57
+      },
+      {
+        "ordem": 54,
+        "titulo": "7 - Instrumentos de Política Monetária",
+        "duracao": "00:30:44",
+        "segundos": 1844,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 55,
+        "titulo": "8 - Política Monetária - Instrumentos: Não Convencionais - Quantitative Easing",
+        "duracao": "00:32:08",
+        "segundos": 1928,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 56,
+        "titulo": "9 - Política Monetária - Instrumentos: Não Convencionais - Depósito Voluntário Remunerado",
+        "duracao": "00:40:21",
+        "segundos": 2421,
+        "minutos_video": 40,
+        "minutos_estimados": 55
+      },
+      {
+        "ordem": 57,
+        "titulo": "10 - Revisão de Política Monetária",
+        "duracao": "00:42:33",
+        "segundos": 2553,
+        "minutos_video": 43,
+        "minutos_estimados": 58
+      },
+      {
+        "ordem": 58,
+        "titulo": "11 - Taxa Selic e Curva de Juros",
+        "duracao": "00:32:26",
+        "segundos": 1946,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 59,
+        "titulo": "1 - Mercado de Câmbio - Introdução e Regimes Cambiais",
+        "duracao": "00:35:43",
+        "segundos": 2143,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 60,
+        "titulo": "2 - Taxas de Câmbio (Nominal e Real)",
+        "duracao": "00:32:31",
+        "segundos": 1951,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 61,
+        "titulo": "3 - Taxas de Câmbio (Produtores e Cedentes de Moeda Estrangeira)",
+        "duracao": "00:37:20",
+        "segundos": 2240,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 62,
+        "titulo": "4 - Impactos das taxas de câmbio sobre as exportações e importações",
+        "duracao": "00:19:34",
+        "segundos": 1174,
+        "minutos_video": 20,
+        "minutos_estimados": 35
+      },
+      {
+        "ordem": 63,
+        "titulo": "5 - Diferencial de Juros Interno e Externo e Prêmios de Risco",
+        "duracao": "00:20:34",
+        "segundos": 1234,
+        "minutos_video": 21,
+        "minutos_estimados": 36
+      },
+      {
+        "ordem": 64,
+        "titulo": "6 - Instituições autorizadas a operar, Operações básicas, contratos de câmbio e Mercado Primário e Secundário",
+        "duracao": "00:32:36",
+        "segundos": 1956,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 65,
+        "titulo": "7 - Posições de Câmbio",
+        "duracao": "00:33:33",
+        "segundos": 2013,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 66,
+        "titulo": "8 - Posições de Câmbio - Parte Final",
+        "duracao": "00:37:52",
+        "segundos": 2272,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 67,
+        "titulo": "9 - Siscomex",
+        "duracao": "00:22:17",
+        "segundos": 1337,
+        "minutos_video": 22,
+        "minutos_estimados": 37
+      },
+      {
+        "ordem": 68,
+        "titulo": "10 - Revisão Mercado de Câmbio",
+        "duracao": "00:33:56",
+        "segundos": 2036,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 69,
+        "titulo": "11 - Revisão Mercado de Câmbio II",
+        "duracao": "00:35:29",
+        "segundos": 2129,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 70,
+        "titulo": "12 - Revisão Mercado de Câmbio III",
+        "duracao": "00:35:07",
+        "segundos": 2107,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 71,
+        "titulo": "1 - Orçamento Público e Despesa Pública",
+        "duracao": "00:37:34",
+        "segundos": 2254,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 72,
+        "titulo": "2 - Dívida Pública",
+        "duracao": "00:32:10",
+        "segundos": 1930,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 73,
+        "titulo": "3 - Títulos Públicos",
+        "duracao": "00:39:29",
+        "segundos": 2369,
+        "minutos_video": 39,
+        "minutos_estimados": 54
+      },
+      {
+        "ordem": 74,
+        "titulo": "4 - Títulos Públicos II",
+        "duracao": "00:36:25",
+        "segundos": 2185,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 75,
+        "titulo": "1 - Mercado Bancário: Operações de Tesouraria, Varejo Bancário e Recuperação de Crédito",
+        "duracao": "00:33:35",
+        "segundos": 2015,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 76,
+        "titulo": "2 - Mercado Bancário: Recuperação de Crédito",
+        "duracao": "00:28:58",
+        "segundos": 1738,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 77,
+        "titulo": "1 - Lei nº 9.613/1998 - Crimes de Lavagem de Dinheiro - Introdução",
+        "duracao": "00:30:50",
+        "segundos": 1850,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 78,
+        "titulo": "2 - Lei nº 9.613/98 - Lei dos Crimes de Lavagem de Dinheiro",
+        "duracao": "00:29:25",
+        "segundos": 1765,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 79,
+        "titulo": "3 - Lei nº 9.613/98 - Lei dos Crimes de Lavagem de Dinheiro II",
+        "duracao": "00:30:06",
+        "segundos": 1806,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 80,
+        "titulo": "4 - Lei nº 9.613/98 - Lei dos Crimes de Lavagem de Dinheiro III",
+        "duracao": "00:42:32",
+        "segundos": 2552,
+        "minutos_video": 43,
+        "minutos_estimados": 58
+      },
+      {
+        "ordem": 81,
+        "titulo": "5 - Lei nº 9.613/98 - Lei dos Crimes de Lavagem de Dinheiro IV",
+        "duracao": "00:25:41",
+        "segundos": 1541,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 82,
+        "titulo": "6 - Lei nº 9.613/98 - Lei dos Crimes de Lavagem de Dinheiro - Questões",
+        "duracao": "00:26:41",
+        "segundos": 1601,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 83,
+        "titulo": "7 - Circular nº 3.978, de 23 de janeiro de 2020, do Banco Central do Brasil",
+        "duracao": "00:31:11",
+        "segundos": 1871,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 84,
+        "titulo": "8 - Circular nº 3.978, de 23 de janeiro de 2020, do Banco Central do Brasil II",
+        "duracao": "00:12:12",
+        "segundos": 732,
+        "minutos_video": 12,
+        "minutos_estimados": 27
+      },
+      {
+        "ordem": 85,
+        "titulo": "9 - Carta Circular nº 4.001, de 29 de janeiro de 2020, do Banco Central do Brasil (texto vigente após as atualizações da Carta Circular BCB nº 4.037/2020 e da Instrução Normativa BCB nº 461/2024)",
+        "duracao": "00:24:25",
+        "segundos": 1465,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 86,
+        "titulo": "10 - Revisão em Questões - Circulares e Cartas Circulares do BACEN",
+        "duracao": "00:23:52",
+        "segundos": 1432,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 87,
+        "titulo": "1 - Autorregulação Bancária e Normativos SARB",
+        "duracao": "00:32:09",
+        "segundos": 1929,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 88,
+        "titulo": "2 - Autorregulação Bancária e Normativos SARB II",
+        "duracao": "00:31:45",
+        "segundos": 1905,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 89,
+        "titulo": "3 - Autorregulação Bancária e Normativos SARB III",
+        "duracao": "00:34:36",
+        "segundos": 2076,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 90,
+        "titulo": "1 - Lei Complementar nº 105/2021 - Sigilo Bancário",
+        "duracao": "00:37:39",
+        "segundos": 2259,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 91,
+        "titulo": "2 - Lei Complementar nº 105/2021 - Sigilo Bancário II",
+        "duracao": "00:37:04",
+        "segundos": 2224,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 92,
+        "titulo": "1 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD",
+        "duracao": "00:29:32",
+        "segundos": 1772,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 93,
+        "titulo": "2 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD II",
+        "duracao": "00:33:46",
+        "segundos": 2026,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 94,
+        "titulo": "3 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD III",
+        "duracao": "00:33:01",
+        "segundos": 1981,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 95,
+        "titulo": "4 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD IV",
+        "duracao": "00:19:12",
+        "segundos": 1152,
+        "minutos_video": 19,
+        "minutos_estimados": 34
+      },
+      {
+        "ordem": 96,
+        "titulo": "5 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD V",
+        "duracao": "00:28:40",
+        "segundos": 1720,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 97,
+        "titulo": "6 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD VI",
+        "duracao": "00:27:49",
+        "segundos": 1669,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 98,
+        "titulo": "7 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD VII",
+        "duracao": "00:17:42",
+        "segundos": 1062,
+        "minutos_video": 18,
+        "minutos_estimados": 33
+      },
+      {
+        "ordem": 99,
+        "titulo": "8 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD VIII",
+        "duracao": "00:26:48",
+        "segundos": 1608,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 100,
+        "titulo": "9 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD IX",
+        "duracao": "00:20:39",
+        "segundos": 1239,
+        "minutos_video": 21,
+        "minutos_estimados": 36
+      },
+      {
+        "ordem": 101,
+        "titulo": "10 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD X",
+        "duracao": "00:16:16",
+        "segundos": 976,
+        "minutos_video": 16,
+        "minutos_estimados": 31
+      },
+      {
+        "ordem": 102,
+        "titulo": "11 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD XI",
+        "duracao": "00:15:48",
+        "segundos": 948,
+        "minutos_video": 16,
+        "minutos_estimados": 31
+      },
+      {
+        "ordem": 103,
+        "titulo": "12 - Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais - LGPD XII",
+        "duracao": "00:32:04",
+        "segundos": 1924,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 104,
+        "titulo": "1 - Lei nº 12.846/2013 - Lei Anticorrupção - Introdução",
+        "duracao": "00:22:46",
+        "segundos": 1366,
+        "minutos_video": 23,
+        "minutos_estimados": 38
+      },
+      {
+        "ordem": 105,
+        "titulo": "2 - Lei nº 12.846/2013 - Lei Anticorrupção - Dos Atos Lesivos à Administração Pública",
+        "duracao": "00:13:34",
+        "segundos": 814,
+        "minutos_video": 14,
+        "minutos_estimados": 29
+      },
+      {
+        "ordem": 106,
+        "titulo": "3 - Lei nº 12.846/2013 - Lei Anticorrupção - Da Responsabilização Administrativa",
+        "duracao": "00:13:17",
+        "segundos": 797,
+        "minutos_video": 13,
+        "minutos_estimados": 28
+      },
+      {
+        "ordem": 107,
+        "titulo": "4 - Lei nº 12.846/2013 - Lei Anticorrupção - Do Par e Acordo de Leniência",
+        "duracao": "00:30:16",
+        "segundos": 1816,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 108,
+        "titulo": "5 - Lei nº 12.846/2013 - Lei Anticorrupção - Da Responsabilização Judicial e da Prescrição",
+        "duracao": "00:18:47",
+        "segundos": 1127,
+        "minutos_video": 19,
+        "minutos_estimados": 34
+      },
+      {
+        "ordem": 109,
+        "titulo": "6 - Lei nº 12.846/2013 - Lei Anticorrupção - Exercícios",
+        "duracao": "00:19:37",
+        "segundos": 1177,
+        "minutos_video": 20,
+        "minutos_estimados": 35
+      },
+      {
+        "ordem": 110,
+        "titulo": "1 - Decreto Federal nº 11.129/2022",
+        "duracao": "00:35:16",
+        "segundos": 2116,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 111,
+        "titulo": "2 - Decreto Federal nº 11.129/2022 II",
+        "duracao": "00:32:04",
+        "segundos": 1924,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 112,
+        "titulo": "3 - Decreto Federal nº 11.129/2022 III",
+        "duracao": "00:28:44",
+        "segundos": 1724,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 113,
+        "titulo": "4 - Decreto Federal nº 11.129/2022 IV",
+        "duracao": "00:30:54",
+        "segundos": 1854,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 114,
+        "titulo": "5 - Decreto Federal nº 11.129/2022 V",
+        "duracao": "00:25:31",
+        "segundos": 1531,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 115,
+        "titulo": "6 - Decreto Federal nº 11.129/2022 VI",
+        "duracao": "00:20:38",
+        "segundos": 1238,
+        "minutos_video": 21,
+        "minutos_estimados": 36
+      },
+      {
+        "ordem": 116,
+        "titulo": "1 - Conhecimentos Bancários",
+        "duracao": "00:35:15",
+        "segundos": 2115,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 117,
+        "titulo": "2 - Resolução CMN 4.893/2021 - Segurança Cibernética II",
+        "duracao": "00:28:28",
+        "segundos": 1708,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 118,
+        "titulo": "3 - Resolução CMN 4.893/2021 - Segurança Cibernética III",
+        "duracao": "00:35:49",
+        "segundos": 2149,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 119,
+        "titulo": "4 - Resolução CMN 4.893/2021 - Segurança Cibernética IV",
+        "duracao": "00:12:13",
+        "segundos": 733,
+        "minutos_video": 12,
+        "minutos_estimados": 27
+      },
+      {
+        "ordem": 120,
+        "titulo": "1 - Ética e Moral",
+        "duracao": "00:30:29",
+        "segundos": 1829,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 121,
+        "titulo": "2 - Princípios e Valores",
+        "duracao": "00:30:16",
+        "segundos": 1816,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 122,
+        "titulo": "1 - Noções de Ética Empresarial e Profissional",
+        "duracao": "00:27:32",
+        "segundos": 1652,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 123,
+        "titulo": "2 - Noções de Ética Empresarial e Profissional II",
+        "duracao": "00:29:46",
+        "segundos": 1786,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 124,
+        "titulo": "1 - A Gestão da Ética nas Empresas Públicas e Privadas",
+        "duracao": "00:28:08",
+        "segundos": 1688,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 125,
+        "titulo": "1 - Código de Ética do Banco do Brasil",
+        "duracao": "00:33:25",
+        "segundos": 2005,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 126,
+        "titulo": "2 - Código de Ética do Banco do Brasil II"
+      },
+      {
+        "ordem": 127,
+        "titulo": "3 - Código de Ética do Banco do Brasil III"
+      },
+      {
+        "ordem": 128,
+        "titulo": "4 - Código de Ética do Banco do Brasil IV"
+      },
+      {
+        "ordem": 129,
+        "titulo": "5 - Código de Ética do Banco do Brasil V"
+      },
+      {
+        "ordem": 130,
+        "titulo": "6 - Código de Ética do Banco do Brasil VI"
+      },
+      {
+        "ordem": 131,
+        "titulo": "1 - Política de Responsabilidade Social, Ambiental e Climática (PRSAC) do Banco do Brasil",
+        "duracao": "00:32:17",
+        "segundos": 1937,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 132,
+        "titulo": "1 - ASG (Ambiental, Social e Governança): Economia Sustentável; Financiamentos; Mercado PJ",
+        "duracao": "00:31:51",
+        "segundos": 1911,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 133,
+        "titulo": "2 - ASG (Ambiental, Social e Governança): Economia Sustentável; Financiamentos; Mercado PJ II",
+        "duracao": "00:32:42",
+        "segundos": 1962,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 134,
+        "titulo": "3 - ASG (Ambiental, Social e Governança): Economia Sustentável; Financiamentos; Mercado PJ III",
+        "duracao": "00:23:42",
+        "segundos": 1422,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 135,
+        "titulo": "4 - ASG (Ambiental, Social e Governança): Economia Sustentável; Financiamentos; Mercado PJ IV",
+        "duracao": "00:31:36",
+        "segundos": 1896,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 136,
+        "titulo": "5 - ASG (Ambiental, Social e Governança): Economia Sustentável; Financiamentos; Mercado PJ V",
+        "duracao": "00:32:00",
+        "segundos": 1920,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 137,
+        "titulo": "6 - ASG (Ambiental, Social e Governança): Economia Sustentável; Financiamentos; Mercado PJ VI",
+        "duracao": "00:19:42",
+        "segundos": 1182,
+        "minutos_video": 20,
+        "minutos_estimados": 35
+      },
+      {
+        "ordem": 138,
+        "titulo": "7 - Finanças ESG - Análise de Riscos",
+        "duracao": "00:33:10",
+        "segundos": 1990,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 139,
+        "titulo": "8 - Finanças ESG - Análise de Riscos II",
+        "duracao": "00:33:14",
+        "segundos": 1994,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 140,
+        "titulo": "9 - Finanças ESG - Produtos Verdes",
+        "duracao": "00:33:00",
+        "segundos": 1980,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      }
+    ]
+  },
+  {
+    "ordem": 7,
+    "nome": "Conhecimentos de Informática",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Windows 11",
+        "duracao": "00:28:02",
+        "segundos": 1682,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Windows 11 II",
+        "duracao": "00:27:04",
+        "segundos": 1624,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Windows 11 III",
+        "duracao": "00:30:18",
+        "segundos": 1818,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Windows 11 IV",
+        "duracao": "00:32:54",
+        "segundos": 1974,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Windows 11 V",
+        "duracao": "00:30:17",
+        "segundos": 1817,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - Windows 11 VI",
+        "duracao": "00:36:46",
+        "segundos": 2206,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - Linux",
+        "duracao": "00:31:41",
+        "segundos": 1901,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 8,
+        "titulo": "8 - Linux II",
+        "duracao": "00:32:01",
+        "segundos": 1921,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 9,
+        "titulo": "9 - Linux III",
+        "duracao": "00:30:06",
+        "segundos": 1806,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 10,
+        "titulo": "10 - Linux IV",
+        "duracao": "00:36:11",
+        "segundos": 2171,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 11,
+        "titulo": "1 - Redes e Internet",
+        "duracao": "00:31:56",
+        "segundos": 1916,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 12,
+        "titulo": "2 - Redes e Internet II",
+        "duracao": "00:31:27",
+        "segundos": 1887,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 13,
+        "titulo": "3 - Redes e Internet III",
+        "duracao": "00:35:21",
+        "segundos": 2121,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 14,
+        "titulo": "4 - Redes e Internet IV",
+        "duracao": "00:34:56",
+        "segundos": 2096,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 15,
+        "titulo": "5 - Redes e Internet V",
+        "duracao": "00:31:07",
+        "segundos": 1867,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 16,
+        "titulo": "6 - Redes e Internet VI",
+        "duracao": "00:30:26",
+        "segundos": 1826,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 17,
+        "titulo": "7 - Redes e Internet VII",
+        "duracao": "00:30:17",
+        "segundos": 1817,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 18,
+        "titulo": "8 - Redes e Internet VIII",
+        "duracao": "00:30:45",
+        "segundos": 1845,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 19,
+        "titulo": "9 - Redes e Internet IX",
+        "duracao": "00:31:26",
+        "segundos": 1886,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 20,
+        "titulo": "10 - Redes e Internet X",
+        "duracao": "00:27:43",
+        "segundos": 1663,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 21,
+        "titulo": "11 - Redes e Internet XI",
+        "duracao": "00:39:39",
+        "segundos": 2379,
+        "minutos_video": 40,
+        "minutos_estimados": 55
+      },
+      {
+        "ordem": 22,
+        "titulo": "12 - Microsoft Edge I",
+        "duracao": "00:33:14",
+        "segundos": 1994,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 23,
+        "titulo": "1 - Acesso à Distância a Computadores, Transferência de Informação e Arquivos, Aplicativos de Áudio, Vídeo e Multimidia",
+        "duracao": "00:30:18",
+        "segundos": 1818,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 24,
+        "titulo": "2 - Acesso à Distância a Computadores, Transferência de Informação e Arquivos, Aplicativos de Áudio, Vídeo e Multimidia II",
+        "duracao": "00:30:10",
+        "segundos": 1810,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 25,
+        "titulo": "1 - Segurança da Informação",
+        "duracao": "00:32:23",
+        "segundos": 1943,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 26,
+        "titulo": "2 - Segurança da Informação II",
+        "duracao": "00:29:49",
+        "segundos": 1789,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 27,
+        "titulo": "3 - Segurança da Informação III",
+        "duracao": "00:23:52",
+        "segundos": 1432,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 28,
+        "titulo": "4 - Segurança da Informação IV",
+        "duracao": "00:32:06",
+        "segundos": 1926,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 29,
+        "titulo": "5 - Segurança da Informação V",
+        "duracao": "00:31:00",
+        "segundos": 1860,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 30,
+        "titulo": "6 - Segurança da Informação VI",
+        "duracao": "00:30:13",
+        "segundos": 1813,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 31,
+        "titulo": "7 - Segurança da Informação VII",
+        "duracao": "00:36:00",
+        "segundos": 2160,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 32,
+        "titulo": "1 - Word 365",
+        "duracao": "00:30:34",
+        "segundos": 1834,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 33,
+        "titulo": "2 - Word 365 II",
+        "duracao": "00:34:00",
+        "segundos": 2040,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 34,
+        "titulo": "3 - Word 365 III",
+        "duracao": "00:20:39",
+        "segundos": 1239,
+        "minutos_video": 21,
+        "minutos_estimados": 36
+      },
+      {
+        "ordem": 35,
+        "titulo": "4 - Word 365 IV",
+        "duracao": "00:30:23",
+        "segundos": 1823,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 36,
+        "titulo": "5 - Word 365 V",
+        "duracao": "00:28:04",
+        "segundos": 1684,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 37,
+        "titulo": "6 - Excel 365",
+        "duracao": "00:33:33",
+        "segundos": 2013,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 38,
+        "titulo": "7 - Excel 365 II",
+        "duracao": "00:29:46",
+        "segundos": 1786,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 39,
+        "titulo": "8 - Excel 365 III",
+        "duracao": "00:27:11",
+        "segundos": 1631,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 40,
+        "titulo": "9 - Excel 365 IV",
+        "duracao": "00:32:32",
+        "segundos": 1952,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 41,
+        "titulo": "10 - Excel 365 V",
+        "duracao": "00:31:22",
+        "segundos": 1882,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 42,
+        "titulo": "11 - Excel 365 VI",
+        "duracao": "00:33:38",
+        "segundos": 2018,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 43,
+        "titulo": "12 - Excel 365 VII",
+        "duracao": "00:30:10",
+        "segundos": 1810,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 44,
+        "titulo": "1 - Conceitos sobre EAD (ensino a distância)",
+        "duracao": "00:30:02",
+        "segundos": 1802,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 45,
+        "titulo": "2 - Conceitos sobre EAD (ensino a distância) II",
+        "duracao": "00:34:45",
+        "segundos": 2085,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 46,
+        "titulo": "1 - Suporte à Decisão e Inteligência de Negócio",
+        "duracao": "00:26:01",
+        "segundos": 1561,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 47,
+        "titulo": "2 - Suporte à Decisão e Inteligência de Negócio II",
+        "duracao": "00:36:30",
+        "segundos": 2190,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 48,
+        "titulo": "3 - Suporte à Decisão e Inteligência de Negócio III",
+        "duracao": "00:35:57",
+        "segundos": 2157,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 49,
+        "titulo": "1 - Fundamentos de Análise de Dados",
+        "duracao": "00:33:49",
+        "segundos": 2029,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 50,
+        "titulo": "2 - Fundamentos de Análise de Dados II",
+        "duracao": "00:35:49",
+        "segundos": 2149,
+        "minutos_video": 36,
+        "minutos_estimados": 51
+      },
+      {
+        "ordem": 51,
+        "titulo": "3 - Fundamentos de Análise de Dados III",
+        "duracao": "00:18:14",
+        "segundos": 1094,
+        "minutos_video": 18,
+        "minutos_estimados": 33
+      },
+      {
+        "ordem": 52,
+        "titulo": "4 - Fundamentos de Análise de Dados IV",
+        "duracao": "00:26:16",
+        "segundos": 1576,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 53,
+        "titulo": "5 - Fundamentos de Análise de Dados V",
+        "duracao": "00:30:04",
+        "segundos": 1804,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 54,
+        "titulo": "6 - Suporte a Decisão e Inteligência de Negócio",
+        "duracao": "00:36:31",
+        "segundos": 2191,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 55,
+        "titulo": "7 - Suporte a Decisão e Inteligência de Negócio II",
+        "duracao": "00:24:36",
+        "segundos": 1476,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 56,
+        "titulo": "8 - Suporte a Decisão e Inteligência de Negócio III",
+        "duracao": "00:24:04",
+        "segundos": 1444,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 57,
+        "titulo": "9 - Suporte a Decisão e Inteligência de Negócio IV",
+        "duracao": "00:19:01",
+        "segundos": 1141,
+        "minutos_video": 19,
+        "minutos_estimados": 34
+      },
+      {
+        "ordem": 58,
+        "titulo": "10 - Suporte a Decisão e Inteligência de Negócio V",
+        "duracao": "00:14:10",
+        "segundos": 850,
+        "minutos_video": 14,
+        "minutos_estimados": 29
+      },
+      {
+        "ordem": 59,
+        "titulo": "11 - Suporte a Decisão e Inteligência de Negócio VI",
+        "duracao": "00:15:12",
+        "segundos": 912,
+        "minutos_video": 15,
+        "minutos_estimados": 30
+      }
+    ]
+  },
+  {
+    "ordem": 8,
+    "nome": "Vendas e Negociação",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - Noções de Estratégia Empresarial",
+        "duracao": "00:27:53",
+        "segundos": 1673,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Noções de Estratégia Empresarial II",
+        "duracao": "00:43:16",
+        "segundos": 2596,
+        "minutos_video": 43,
+        "minutos_estimados": 58
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Noções de Estratégia Empresarial III",
+        "duracao": "00:23:05",
+        "segundos": 1385,
+        "minutos_video": 23,
+        "minutos_estimados": 38
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Noções de Estratégia Empresarial IV",
+        "duracao": "00:37:37",
+        "segundos": 2257,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Noções de Estratégia Empresarial V",
+        "duracao": "00:41:05",
+        "segundos": 2465,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - Noções de Estratégia Empresarial VI",
+        "duracao": "00:14:58",
+        "segundos": 898,
+        "minutos_video": 15,
+        "minutos_estimados": 30
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - Noções de Estratégia Empresarial VII",
+        "duracao": "00:49:09",
+        "segundos": 2949,
+        "minutos_video": 49,
+        "minutos_estimados": 64
+      },
+      {
+        "ordem": 8,
+        "titulo": "1 - Forças Competitivas",
+        "duracao": "00:44:25",
+        "segundos": 2665,
+        "minutos_video": 44,
+        "minutos_estimados": 59
+      },
+      {
+        "ordem": 9,
+        "titulo": "2 - Forças Competitivas II",
+        "duracao": "00:26:46",
+        "segundos": 1606,
+        "minutos_video": 27,
+        "minutos_estimados": 42
+      },
+      {
+        "ordem": 10,
+        "titulo": "1 - Imagem Institucional e Identidade",
+        "duracao": "00:25:50",
+        "segundos": 1550,
+        "minutos_video": 26,
+        "minutos_estimados": 41
+      },
+      {
+        "ordem": 11,
+        "titulo": "2 - Imagem Institucional e Identidade II",
+        "duracao": "00:20:35",
+        "segundos": 1235,
+        "minutos_video": 21,
+        "minutos_estimados": 36
+      },
+      {
+        "ordem": 12,
+        "titulo": "1 - Segmentação de Mercado e Posicionamento",
+        "duracao": "00:39:27",
+        "segundos": 2367,
+        "minutos_video": 39,
+        "minutos_estimados": 54
+      },
+      {
+        "ordem": 13,
+        "titulo": "2 - Segmentação de Mercado e Posicionamento",
+        "duracao": "00:18:35",
+        "segundos": 1115,
+        "minutos_video": 19,
+        "minutos_estimados": 34
+      },
+      {
+        "ordem": 14,
+        "titulo": "3 - Segmentação de Mercado e Posicionamento",
+        "duracao": "00:24:49",
+        "segundos": 1489,
+        "minutos_video": 25,
+        "minutos_estimados": 40
+      },
+      {
+        "ordem": 15,
+        "titulo": "1 - Ações para Aumentar o Valor Percebido pelo Cliente",
+        "duracao": "00:43:41",
+        "segundos": 2621,
+        "minutos_video": 44,
+        "minutos_estimados": 59
+      },
+      {
+        "ordem": 16,
+        "titulo": "1 - Gestão da Experiência do Cliente",
+        "duracao": "00:31:56",
+        "segundos": 1916,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 17,
+        "titulo": "2 - Gestão da Experiência do Cliente",
+        "duracao": "00:49:57",
+        "segundos": 2997,
+        "minutos_video": 50,
+        "minutos_estimados": 65
+      },
+      {
+        "ordem": 18,
+        "titulo": "1 - Aprendizagem Organizacional",
+        "duracao": "00:27:57",
+        "segundos": 1677,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 19,
+        "titulo": "2 - Aprendizagem Organizacional II",
+        "duracao": "00:18:32",
+        "segundos": 1112,
+        "minutos_video": 19,
+        "minutos_estimados": 34
+      },
+      {
+        "ordem": 20,
+        "titulo": "1 - Noções de Sustentabilidade Organizacional - Noções de ESG",
+        "duracao": "01:01:07",
+        "segundos": 3667,
+        "minutos_video": 61,
+        "minutos_estimados": 76
+      },
+      {
+        "ordem": 21,
+        "titulo": "1 - Características dos Serviços: Intangibilidade, Inseparabilidade, Variabilidade e Perecibilidade",
+        "duracao": "00:36:40",
+        "segundos": 2200,
+        "minutos_video": 37,
+        "minutos_estimados": 52
+      },
+      {
+        "ordem": 22,
+        "titulo": "1 - Gestão da Qualidade em Serviços",
+        "duracao": "00:49:52",
+        "segundos": 2992,
+        "minutos_video": 50,
+        "minutos_estimados": 65
+      },
+      {
+        "ordem": 23,
+        "titulo": "2 - Gestão da Qualidade em Serviços",
+        "duracao": "00:51:31",
+        "segundos": 3091,
+        "minutos_video": 52,
+        "minutos_estimados": 67
+      },
+      {
+        "ordem": 24,
+        "titulo": "3 - Gestão da Qualidade em Serviços",
+        "duracao": "00:12:56",
+        "segundos": 776,
+        "minutos_video": 13,
+        "minutos_estimados": 28
+      },
+      {
+        "ordem": 25,
+        "titulo": "1 - Técnicas de Vendas: da Pré - Abordagem ao Pós - Vendas",
+        "duracao": "00:40:05",
+        "segundos": 2405,
+        "minutos_video": 40,
+        "minutos_estimados": 55
+      },
+      {
+        "ordem": 26,
+        "titulo": "2 - Técnicas de Vendas: da Pré - Abordagem ao Pós - Vendas",
+        "duracao": "00:32:03",
+        "segundos": 1923,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 27,
+        "titulo": "3 - Técnicas de Vendas: da Pré - Abordagem ao Pós - Vendas",
+        "duracao": "00:33:50",
+        "segundos": 2030,
+        "minutos_video": 34,
+        "minutos_estimados": 49
+      },
+      {
+        "ordem": 28,
+        "titulo": "4 - Técnicas de Vendas: da Pré - Abordagem ao Pós - Vendas",
+        "duracao": "00:39:25",
+        "segundos": 2365,
+        "minutos_video": 39,
+        "minutos_estimados": 54
+      },
+      {
+        "ordem": 29,
+        "titulo": "5 - Técnicas de Vendas: da Pré - Abordagem ao Pós - Vendas",
+        "duracao": "00:27:31",
+        "segundos": 1651,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 30,
+        "titulo": "1 - Noções de Marketing Digital: Geração de Leads; Técnica de Copywriting; Gatilhos Mentais; Inbound Marketing",
+        "duracao": "00:51:04",
+        "segundos": 3064,
+        "minutos_video": 51,
+        "minutos_estimados": 66
+      },
+      {
+        "ordem": 31,
+        "titulo": "2 - Noções de Marketing Digital: Geração de Leads; Técnica de Copywriting; Gatilhos Mentais; Inbound Marketing",
+        "duracao": "00:37:33",
+        "segundos": 2253,
+        "minutos_video": 38,
+        "minutos_estimados": 53
+      },
+      {
+        "ordem": 32,
+        "titulo": "3 - Noções de Marketing Digital: Geração de Leads; Técnica de Copywriting; Gatilhos Mentais; Inbound Marketing",
+        "duracao": "00:46:06",
+        "segundos": 2766,
+        "minutos_video": 46,
+        "minutos_estimados": 61
+      },
+      {
+        "ordem": 33,
+        "titulo": "4 - Noções de Marketing Digital: Geração de Leads; Técnica de Copywriting; Gatilhos Mentais; Inbound Marketing",
+        "duracao": "00:34:36",
+        "segundos": 2076,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 34,
+        "titulo": "1 - Ética e Conduta Profissional em Vendas",
+        "duracao": "00:40:40",
+        "segundos": 2440,
+        "minutos_video": 41,
+        "minutos_estimados": 56
+      },
+      {
+        "ordem": 35,
+        "titulo": "2 - Ética e Conduta Profissional em Vendas",
+        "duracao": "00:27:44",
+        "segundos": 1664,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 36,
+        "titulo": "1 - Padrões de Qualidade no Atendimento aos Clientes",
+        "duracao": "00:27:53",
+        "segundos": 1673,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 37,
+        "titulo": "2 - Padrões de Qualidade no Atendimento aos Clientes II",
+        "duracao": "00:32:41",
+        "segundos": 1961,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 38,
+        "titulo": "3 - Padrões de Qualidade no Atendimento aos Clientes III",
+        "duracao": "00:31:39",
+        "segundos": 1899,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 39,
+        "titulo": "1 - Utilização de Canais Remotos para Vendas",
+        "duracao": "00:39:57",
+        "segundos": 2397,
+        "minutos_video": 40,
+        "minutos_estimados": 55
+      },
+      {
+        "ordem": 40,
+        "titulo": "2 - Utilização de Canais Remotos para Vendas",
+        "duracao": "00:18:33",
+        "segundos": 1113,
+        "minutos_video": 19,
+        "minutos_estimados": 34
+      },
+      {
+        "ordem": 41,
+        "titulo": "1 - Comportamento do Consumidor e sua Relação com Vendas e Negociação",
+        "duracao": "00:18:49",
+        "segundos": 1129,
+        "minutos_video": 19,
+        "minutos_estimados": 34
+      },
+      {
+        "ordem": 42,
+        "titulo": "1 - Política de Relacionamento com o Cliente: Resolução nº 4.949, de 30 de setembro de 2021 atualizada pela Resolução CMN nº 5.117/2024",
+        "duracao": "00:32:04",
+        "segundos": 1924,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 43,
+        "titulo": "2 - Política de Relacionamento com o Cliente: Resolução nº 4.949, de 30 de setembro de 2021 atualizada pela Resolução CMN nº 5.117/2024",
+        "duracao": "00:35:07",
+        "segundos": 2107,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 44,
+        "titulo": "3 - Política de Relacionamento com o Cliente: Resolução nº 4.949, de 30 de setembro de 2021 atualizada pela Resolução CMN nº 5.117/2024",
+        "duracao": "00:10:52",
+        "segundos": 652,
+        "minutos_video": 11,
+        "minutos_estimados": 26
+      },
+      {
+        "ordem": 45,
+        "titulo": "1 - Resolução CMN nº 4.860, de 23 de outubro de 2020 - Ouvidoria",
+        "duracao": "00:31:17",
+        "segundos": 1877,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 46,
+        "titulo": "2 - Resolução CMN nº 4.860, de 23 de outubro de 2020 - Ouvidoria II"
+      },
+      {
+        "ordem": 47,
+        "titulo": "3 - Resolução CMN nº 4.860, de 23 de outubro de 2020 - Ouvidoria III",
+        "duracao": "00:34:39",
+        "segundos": 2079,
+        "minutos_video": 35,
+        "minutos_estimados": 50
+      },
+      {
+        "ordem": 48,
+        "titulo": "1 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990",
+        "duracao": "00:30:33",
+        "segundos": 1833,
+        "minutos_video": 31,
+        "minutos_estimados": 46
+      },
+      {
+        "ordem": 49,
+        "titulo": "2 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990",
+        "duracao": "00:28:33",
+        "segundos": 1713,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 50,
+        "titulo": "3 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990",
+        "duracao": "00:23:53",
+        "segundos": 1433,
+        "minutos_video": 24,
+        "minutos_estimados": 39
+      },
+      {
+        "ordem": 51,
+        "titulo": "4 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990",
+        "duracao": "00:29:15",
+        "segundos": 1755,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 52,
+        "titulo": "5 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990 - Relação Jurídica de Consumo",
+        "duracao": "00:29:48",
+        "segundos": 1788,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 53,
+        "titulo": "6 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990 - Responsabilidade no Direito do Consumidor",
+        "duracao": "00:29:16",
+        "segundos": 1756,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 54,
+        "titulo": "7 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990 - Responsabilidade do Direito do Consumidor II",
+        "duracao": "00:32:13",
+        "segundos": 1933,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 55,
+        "titulo": "8 - Código de Proteção e Defesa do Consumidor - Lei nº 8.078/1990 - Responsabilidade do Direito do Consumidor III",
+        "duracao": "00:28:48",
+        "segundos": 1728,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 56,
+        "titulo": "9 - Responsabilidade do Direito do Consumidor IV",
+        "duracao": "00:27:36",
+        "segundos": 1656,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 57,
+        "titulo": "10 - Responsabilidade do Direito do Consumidor V",
+        "duracao": "00:28:47",
+        "segundos": 1727,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 58,
+        "titulo": "11 - Responsabilidade do Direito do Consumidor VI",
+        "duracao": "00:29:01",
+        "segundos": 1741,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      },
+      {
+        "ordem": 59,
+        "titulo": "12 - Responsabilidade do Direito do Consumidor VII",
+        "duracao": "00:32:11",
+        "segundos": 1931,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      }
+    ]
+  },
+  {
+    "ordem": 9,
+    "nome": "Redação Discursiva",
+    "topicos": [
+      {
+        "ordem": 1,
+        "titulo": "1 - O Que é Um Texto Dissertativo Argumentativo",
+        "duracao": "00:32:25",
+        "segundos": 1945,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 2,
+        "titulo": "2 - Como Estruturar o Texto Argumentativo",
+        "duracao": "00:32:00",
+        "segundos": 1920,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 3,
+        "titulo": "3 - Como Elaborar Uma Dissertação Argumentativa",
+        "duracao": "00:31:46",
+        "segundos": 1906,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 4,
+        "titulo": "4 - Como Elaborar os Parágrafos de Introdução e de Conclusão",
+        "duracao": "00:29:59",
+        "segundos": 1799,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 5,
+        "titulo": "5 - Como Elaborar os Parágrafos de Desenvolvimento",
+        "duracao": "00:32:01",
+        "segundos": 1921,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 6,
+        "titulo": "6 - Como Dar Solidez Às Ideias da Argumentação",
+        "duracao": "00:33:16",
+        "segundos": 1996,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 7,
+        "titulo": "7 - Critérios de Apresentação e de Referências no Texto",
+        "duracao": "00:32:59",
+        "segundos": 1979,
+        "minutos_video": 33,
+        "minutos_estimados": 48
+      },
+      {
+        "ordem": 8,
+        "titulo": "8 - Aspectos Gramaticais e de Linguagem",
+        "duracao": "00:31:31",
+        "segundos": 1891,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 9,
+        "titulo": "9 - Aspectos Gramaticais e de Linguagem II",
+        "duracao": "00:30:12",
+        "segundos": 1812,
+        "minutos_video": 30,
+        "minutos_estimados": 45
+      },
+      {
+        "ordem": 10,
+        "titulo": "10 - Aspectos Gramaticais e de Linguagem III",
+        "duracao": "00:28:28",
+        "segundos": 1708,
+        "minutos_video": 28,
+        "minutos_estimados": 43
+      },
+      {
+        "ordem": 11,
+        "titulo": "11 - Análise de Redações Elaboradas",
+        "duracao": "00:32:08",
+        "segundos": 1928,
+        "minutos_video": 32,
+        "minutos_estimados": 47
+      },
+      {
+        "ordem": 12,
+        "titulo": "12 - Considerações Finais",
+        "duracao": "00:29:16",
+        "segundos": 1756,
+        "minutos_video": 29,
+        "minutos_estimados": 44
+      }
+    ]
+  }
+]

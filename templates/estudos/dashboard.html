@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load l10n %}
+{% block title %}Painel · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div class="hero-panel">
+    <div>
+      <p class="eyebrow">BB Agente Comercial</p>
+      <h1>Painel de estudos</h1>
+      <p class="muted">Progresso do edital, horas líquidas, questões e o que estudar hoje.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="{% url 'estudos:iniciar_sessao' %}">Nova sessão</a>
+      <a class="btn secondary" href="{% url 'estudos:cronograma' %}">Cronograma</a>
+    </div>
+  </div>
+
+  {% if sessao_aberta %}
+  <div class="card actions highlight">
+    <strong>Sessão em andamento</strong>
+    <span class="muted">
+      {% if sessao_aberta.topico %}{{ sessao_aberta.topico.titulo }}{% elif sessao_aberta.disciplina %}{{ sessao_aberta.disciplina.nome }}{% else %}livre{% endif %}
+    </span>
+    <a class="btn" href="{% url 'estudos:sessao' sessao_aberta.pk %}">Continuar</a>
+  </div>
+  {% endif %}
+
+  <div class="grid grid-4">
+    <div class="card">
+      <div class="stat-value">{{ percentual_geral }}%</div>
+      <div class="stat-label">Edital coberto</div>
+      <div class="bar{% if percentual_geral >= 100 %} is-complete{% endif %}"><span style="width: {{ percentual_geral|unlocalize }}%"></span></div>
+    </div>
+    <div class="card">
+      <div class="stat-value">{{ horas.hoje_fmt }}</div>
+      <div class="stat-label">Horas hoje</div>
+    </div>
+    <div class="card">
+      <div class="stat-value">{{ horas.semana_fmt }}</div>
+      <div class="stat-label">Horas na semana</div>
+    </div>
+    <div class="card">
+      <div class="stat-value">{% if questoes.taxa != None %}{{ questoes.taxa }}%{% else %}—{% endif %}</div>
+      <div class="stat-label">Aproveitamento ({{ questoes.acertos }}/{{ questoes.total }})</div>
+    </div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="actions" style="justify-content: space-between; margin-bottom: 0.75rem;">
+        <h2 style="margin:0">Hoje no cronograma</h2>
+      </div>
+      {% if cronograma.tem_cronograma %}
+        <p class="muted" style="margin-top:0">
+          {{ cronograma.minutos_hoje }} min planejados hoje ·
+          previsão de término
+          {% if cronograma.data_fim %}<strong>{{ cronograma.data_fim|date:"d/m/Y" }}</strong>{% else %}—{% endif %}
+          ({{ cronograma.horas_restantes }}h restantes)
+        </p>
+        {% if cronograma.itens_hoje %}
+        <ul class="list">
+          {% for item in cronograma.itens_hoje %}
+          <li>
+            <div>
+              <strong>{{ item.topico.titulo }}</strong>
+              <div class="meta">
+                {{ item.topico.disciplina.nome }} · {{ item.minutos_planejados }} min
+                {% if item.concluido %}<span class="badge completo">feito</span>{% endif %}
+              </div>
+            </div>
+            {% if not item.concluido %}
+            <a class="btn" href="{% url 'estudos:iniciar_sessao' %}?topico={{ item.topico_id }}">Estudar</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="muted">Nada agendado para hoje (dia de folga ou já em dia).</p>
+        {% endif %}
+      {% else %}
+        <p class="muted">Ainda não há cronograma.</p>
+        <a class="btn" href="{% url 'estudos:cronograma' %}">Montar cronograma</a>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2>Status dos tópicos</h2>
+      <ul class="list">
+        {% for status, qtd in contagem_status.items %}
+        <li>
+          <span><span class="badge {{ status }}">{{ status }}</span></span>
+          <strong>{{ qtd }}</strong>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="actions" style="margin-top:1rem">
+        <a class="btn secondary" href="{% url 'estudos:fila' %}">Fila SRS</a>
+        <a class="btn secondary" href="{% url 'estudos:disciplinas' %}">Disciplinas</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Progresso por disciplina</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Cobertura</th>
+          <th>Pendentes</th>
+          <th>Estudando</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in progresso %}
+        <tr>
+          <td>{{ item.disciplina.nome }}</td>
+          <td>
+            {{ item.percentual }}% ({{ item.cobertos }}/{{ item.total }})
+            <div class="bar{% if item.percentual >= 100 %} is-complete{% endif %}"><span style="width: {{ item.percentual|unlocalize }}%"></span></div>
+          </td>
+          <td>{{ item.pendentes }}</td>
+          <td>{{ item.estudando }}</td>
+          <td><a href="{% url 'estudos:disciplina' item.disciplina.id %}">abrir</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">Nenhuma disciplina. Rode: <code>python manage.py seed_topicos</code></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% block title %}Sessão · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div>
+    <h1>Sessão de estudo</h1>
+    <p class="muted">
+      {% if sessao.topico %}
+        {{ sessao.disciplina.nome }} · {{ sessao.topico.titulo }}
+      {% elif sessao.disciplina %}
+        {{ sessao.disciplina.nome }}
+      {% else %}
+        Sessão livre
+      {% endif %}
+    </p>
+  </div>
+
+  {% if sessao.ativa %}
+  <div class="card">
+    <div class="timer" id="timer">00:00:00</div>
+    <div class="actions" style="justify-content:center;">
+      <button type="button" id="btn-toggle" class="btn">Pausar</button>
+      <button type="button" id="btn-finish-open" class="btn secondary">Finalizar</button>
+    </div>
+  </div>
+
+  <form method="post" action="{% url 'estudos:finalizar_sessao' sessao.pk %}" id="finish-form" class="card stack" hidden>
+    {% csrf_token %}
+    <input type="hidden" name="segundos_liquidos" id="segundos_liquidos" value="0">
+    <h2>Encerrar sessão</h2>
+    <p class="muted">Tempo líquido: <strong id="tempo-resumo">00:00:00</strong></p>
+    <div class="form-grid">
+      <label>
+        Acertos
+        <input type="number" name="acertos" min="0" value="0" required>
+      </label>
+      <label>
+        Erros
+        <input type="number" name="erros" min="0" value="0" required>
+      </label>
+    </div>
+    {% if sessao.topico %}
+    <label>
+      Atualizar status do tópico
+      <select name="novo_status">
+        <option value="">manter ({{ sessao.topico.get_status_display }})</option>
+        {% for value, label in status_choices %}
+        <option value="{{ value }}">{{ label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    {% endif %}
+    <label>
+      Notas (opcional)
+      <textarea name="notas" placeholder="O que errou, dúvidas, pages do PDF..."></textarea>
+    </label>
+    <div class="actions">
+      <button type="submit">Salvar sessão</button>
+      <button type="button" class="btn secondary" id="btn-cancel-finish">Voltar ao cronômetro</button>
+    </div>
+  </form>
+
+  <script>
+  (function () {
+    const STORAGE_KEY = "sessao-{{ sessao.pk }}";
+    const timerEl = document.getElementById("timer");
+    const toggleBtn = document.getElementById("btn-toggle");
+    const finishOpen = document.getElementById("btn-finish-open");
+    const finishForm = document.getElementById("finish-form");
+    const cancelFinish = document.getElementById("btn-cancel-finish");
+    const segundosInput = document.getElementById("segundos_liquidos");
+    const tempoResumo = document.getElementById("tempo-resumo");
+
+    let estado = { accumulatedMs: 0, running: true, startedAt: Date.now() };
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (saved && typeof saved.accumulatedMs === "number") {
+        estado = saved;
+        if (estado.running && !estado.startedAt) estado.startedAt = Date.now();
+      }
+    } catch (e) {}
+
+    function elapsedMs() {
+      if (!estado.running) return estado.accumulatedMs;
+      return estado.accumulatedMs + (Date.now() - estado.startedAt);
+    }
+
+    function fmt(ms) {
+      const total = Math.floor(ms / 1000);
+      const h = String(Math.floor(total / 3600)).padStart(2, "0");
+      const m = String(Math.floor((total % 3600) / 60)).padStart(2, "0");
+      const s = String(total % 60).padStart(2, "0");
+      return `${h}:${m}:${s}`;
+    }
+
+    function persist() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
+    }
+
+    function render() {
+      const text = fmt(elapsedMs());
+      timerEl.textContent = text;
+      tempoResumo.textContent = text;
+      toggleBtn.textContent = estado.running ? "Pausar" : "Continuar";
+    }
+
+    function tick() {
+      render();
+      requestAnimationFrame(tick);
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      if (estado.running) {
+        estado.accumulatedMs = elapsedMs();
+        estado.running = false;
+        estado.startedAt = null;
+      } else {
+        estado.running = true;
+        estado.startedAt = Date.now();
+      }
+      persist();
+      render();
+    });
+
+    finishOpen.addEventListener("click", () => {
+      if (estado.running) {
+        estado.accumulatedMs = elapsedMs();
+        estado.running = false;
+        estado.startedAt = null;
+        persist();
+      }
+      segundosInput.value = String(Math.floor(elapsedMs() / 1000));
+      render();
+      finishForm.hidden = false;
+      finishOpen.disabled = true;
+      toggleBtn.disabled = true;
+    });
+
+    cancelFinish.addEventListener("click", () => {
+      finishForm.hidden = true;
+      finishOpen.disabled = false;
+      toggleBtn.disabled = false;
+      estado.running = true;
+      estado.startedAt = Date.now();
+      persist();
+    });
+
+    finishForm.addEventListener("submit", () => {
+      segundosInput.value = String(Math.floor(elapsedMs() / 1000));
+      localStorage.removeItem(STORAGE_KEY);
+    });
+
+    persist();
+    tick();
+  })();
+  </script>
+  {% else %}
+  <div class="card">
+    <p>Sessão finalizada em {{ sessao.finalizada_em|date:"d/m/Y H:i" }}.</p>
+    <p>Tempo: <strong>{{ sessao.horas_formatadas }}</strong> · {{ sessao.acertos }} acertos / {{ sessao.erros }} erros</p>
+    <a class="btn" href="{% url 'estudos:dashboard' %}">Voltar ao dashboard</a>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

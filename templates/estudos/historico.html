@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Histórico · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div>
+    <h1>Histórico de sessões</h1>
+    <p class="muted">Últimas 100 sessões finalizadas.</p>
+  </div>
+  <div class="card" style="padding:0; overflow:auto;">
+    <table class="table" style="margin:0 1rem;">
+      <thead>
+        <tr>
+          <th>Quando</th>
+          <th>Alvo</th>
+          <th>Tempo</th>
+          <th>Questões</th>
+          <th>Notas</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in sessoes %}
+        <tr>
+          <td>{{ s.finalizada_em|date:"d/m/Y H:i" }}</td>
+          <td>
+            {% if s.topico %}{{ s.topico.titulo }}{% elif s.disciplina %}{{ s.disciplina.nome }}{% else %}livre{% endif %}
+            {% if s.disciplina %}<div class="meta">{{ s.disciplina.nome }}</div>{% endif %}
+          </td>
+          <td>{{ s.horas_formatadas }}</td>
+          <td>{{ s.acertos }} / {{ s.erros }}</td>
+          <td>{{ s.notas|default:"—" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">Nenhuma sessão ainda.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

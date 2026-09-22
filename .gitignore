@@ -1,0 +1,14 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+.env
+.venv/
+venv/
+_raw_html/
+_parse_*.py
+_parse_out*.txt
+_topics_extracted.*
+*.log
+.DS_Store

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}{{ disciplina.nome }} · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div class="actions" style="justify-content: space-between;">
+    <div>
+      <h1>{{ disciplina.nome }}</h1>
+      <p class="muted">{{ disciplina.percentual_coberto }}% coberto ({{ disciplina.topicos_cobertos }}/{{ disciplina.total_topicos }})</p>
+    </div>
+    <a class="btn" href="{% url 'estudos:iniciar_sessao' %}?disciplina={{ disciplina.id }}">Estudar disciplina</a>
+  </div>
+
+  <div class="actions">
+    <a class="btn secondary" href="?">todos</a>
+    {% for value, label in status_choices %}
+      <a class="btn secondary" href="?status={{ value }}">{{ label }}</a>
+    {% endfor %}
+  </div>
+
+  <div class="card" style="padding:0; overflow:auto;">
+    <table class="table" style="margin:0 1rem;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tópico</th>
+          <th>Status</th>
+          <th>Questões</th>
+          <th>Revisão</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in topicos %}
+        <tr>
+          <td>{{ t.ordem }}</td>
+          <td>
+            {{ t.titulo }}
+            {% if t.esta_vencido %}<span class="badge vencido">revisar</span>{% endif %}
+          </td>
+          <td>
+            <form method="post" action="{% url 'estudos:atualizar_status' t.id %}" class="status-form actions">
+              {% csrf_token %}
+              <input type="hidden" name="next" value="{{ request.get_full_path }}">
+              <select name="status" onchange="this.form.submit()">
+                {% for value, label in status_choices %}
+                <option value="{{ value }}" {% if t.status == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+              </select>
+            </form>
+          </td>
+          <td>
+            {% if t.total_questoes %}
+              {{ t.total_acertos }}/{{ t.total_questoes }}
+              {% if t.aproveitamento != None %}({{ t.aproveitamento }}%){% endif %}
+            {% else %}—{% endif %}
+          </td>
+          <td>{% if t.proxima_revisao %}{{ t.proxima_revisao|date:"d/m/Y" }}{% else %}—{% endif %}</td>
+          <td><a class="btn" href="{% url 'estudos:iniciar_sessao' %}?topico={{ t.id }}">Sessão</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">Nenhum tópico neste filtro.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
