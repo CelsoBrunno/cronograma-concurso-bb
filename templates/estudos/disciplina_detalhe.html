@@ -6,6 +6,14 @@
     <div>
       <h1>{{ disciplina.nome }}</h1>
       <p class="muted">{{ disciplina.percentual_coberto }}% coberto ({{ disciplina.topicos_cobertos }}/{{ disciplina.total_topicos }})</p>
+      <p class="muted" style="margin-top:0.35rem">
+        {% if questoes.total %}
+          {{ questoes.acertos }} acertos · {{ questoes.erros }} erros
+          {% if questoes.taxa != None %} · aproveitamento {{ questoes.taxa }}%{% endif %}
+        {% else %}
+          Nenhuma questão registrada nesta disciplina ainda.
+        {% endif %}
+      </p>
     </div>
     <a class="btn" href="{% url 'estudos:iniciar_sessao' %}?disciplina={{ disciplina.id }}">Estudar disciplina</a>
   </div>

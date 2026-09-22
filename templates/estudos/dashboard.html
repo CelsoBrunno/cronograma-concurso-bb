@@ -41,7 +41,11 @@
     </div>
     <div class="card">
       <div class="stat-value">{% if questoes.taxa != None %}{{ questoes.taxa }}%{% else %}—{% endif %}</div>
-      <div class="stat-label">Aproveitamento ({{ questoes.acertos }}/{{ questoes.total }})</div>
+      <div class="stat-label">Aproveitamento</div>
+      <p class="muted" style="margin: 0.45rem 0 0; font-size: 0.9rem;">
+        {{ questoes.acertos }} acertos · {{ questoes.erros }} erros
+        {% if questoes.total %} ({{ questoes.total }} questões){% endif %}
+      </p>
     </div>
   </div>
 
@@ -107,6 +111,7 @@
         <tr>
           <th>Disciplina</th>
           <th>Cobertura</th>
+          <th>Questões</th>
           <th>Pendentes</th>
           <th>Estudando</th>
           <th></th>
@@ -120,12 +125,20 @@
             {{ item.percentual }}% ({{ item.cobertos }}/{{ item.total }})
             <div class="bar{% if item.percentual >= 100 %} is-complete{% endif %}"><span style="width: {{ item.percentual|unlocalize }}%"></span></div>
           </td>
+          <td>
+            {% if item.questoes_total %}
+              {{ item.acertos }} acertos · {{ item.erros }} erros
+              {% if item.taxa != None %}<div class="meta">{{ item.taxa }}%</div>{% endif %}
+            {% else %}
+              —
+            {% endif %}
+          </td>
           <td>{{ item.pendentes }}</td>
           <td>{{ item.estudando }}</td>
           <td><a href="{% url 'estudos:disciplina' item.disciplina.id %}">abrir</a></td>
         </tr>
         {% empty %}
-        <tr><td colspan="5">Nenhuma disciplina. Rode: <code>python manage.py seed_topicos</code></td></tr>
+        <tr><td colspan="6">Nenhuma disciplina. Rode: <code>python manage.py seed_topicos</code></td></tr>
         {% endfor %}
       </tbody>
     </table>

@@ -67,6 +67,7 @@ def disciplina_detalhe(request: HttpRequest, pk: int) -> HttpResponse:
             "status_filtro": status_filtro,
             "status_choices": Topico.Status.choices,
             "sessao_aberta": services.sessao_ativa(),
+            "questoes": services.resumo_questoes_disciplina(disciplina.id),
         },
     )
 

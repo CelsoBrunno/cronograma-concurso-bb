@@ -45,8 +45,9 @@ def resumo_horas() -> dict:
 
 
 def resumo_questoes() -> dict:
-    agg = Topico.objects.aggregate(
-        acertos=Sum("total_acertos"), erros=Sum("total_erros")
+    """Totais a partir das sessões finalizadas (funciona com ou sem tópico)."""
+    agg = SessaoEstudo.objects.filter(ativa=False).aggregate(
+        acertos=Sum("acertos"), erros=Sum("erros")
     )
     acertos = agg["acertos"] or 0
     erros = agg["erros"] or 0
@@ -71,9 +72,22 @@ def progresso_por_disciplina() -> list[dict]:
             "topicos", filter=Q(topicos__status=Topico.Status.PENDENTE)
         ),
     )
+
+    questao_por_disc = {
+        row["disciplina_id"]: row
+        for row in SessaoEstudo.objects.filter(ativa=False, disciplina_id__isnull=False)
+        .values("disciplina_id")
+        .annotate(acertos=Sum("acertos"), erros=Sum("erros"))
+    }
+
     result = []
     for d in disciplinas:
         pct = round(100.0 * d.cobertos / d.total, 1) if d.total else 0.0
+        q = questao_por_disc.get(d.id, {})
+        acertos = q.get("acertos") or 0
+        erros = q.get("erros") or 0
+        total_q = acertos + erros
+        taxa = round(100.0 * acertos / total_q, 1) if total_q else None
         result.append(
             {
                 "disciplina": d,
@@ -82,10 +96,24 @@ def progresso_por_disciplina() -> list[dict]:
                 "estudando": d.estudando,
                 "pendentes": d.pendentes,
                 "percentual": pct,
+                "acertos": acertos,
+                "erros": erros,
+                "questoes_total": total_q,
+                "taxa": taxa,
             }
         )
     return result
 
+
+def resumo_questoes_disciplina(disciplina_id: int) -> dict:
+    agg = SessaoEstudo.objects.filter(
+        ativa=False, disciplina_id=disciplina_id
+    ).aggregate(acertos=Sum("acertos"), erros=Sum("erros"))
+    acertos = agg["acertos"] or 0
+    erros = agg["erros"] or 0
+    total = acertos + erros
+    taxa = round(100.0 * acertos / total, 1) if total else None
+    return {"acertos": acertos, "erros": erros, "total": total, "taxa": taxa}
 
 def fila_diaria(limite: int = 12) -> list[Topico]:
     """Fila simples: revisões vencidas → estudando → pendentes."""

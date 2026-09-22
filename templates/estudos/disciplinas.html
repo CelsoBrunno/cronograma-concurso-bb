@@ -12,6 +12,14 @@
     <a class="card" href="{% url 'estudos:disciplina' item.disciplina.id %}" style="color: inherit;">
       <h2>{{ item.disciplina.nome }}</h2>
       <p class="muted">{{ item.cobertos }}/{{ item.total }} cobertos · {{ item.percentual }}%</p>
+      <p class="muted" style="margin-top:0.35rem">
+        {% if item.questoes_total %}
+          {{ item.acertos }} acertos · {{ item.erros }} erros
+          {% if item.taxa != None %} · {{ item.taxa }}%{% endif %}
+        {% else %}
+          Sem questões registradas
+        {% endif %}
+      </p>
       <div class="bar{% if item.percentual >= 100 %} is-complete{% endif %}"><span style="width: {{ item.percentual|unlocalize }}%"></span></div>
     </a>
     {% empty %}
