@@ -16,9 +16,31 @@
   </div>
 
   {% if sessao.ativa %}
-  <div class="card">
+  <div class="card timer-card" id="timer-card">
     <div class="timer" id="timer">00:00:00</div>
-    <div class="actions" style="justify-content:center;">
+    <p class="alarm-status" id="alarm-status">Sem alarme</p>
+    <div class="alarm-row">
+      <label class="alarm-label" for="alarm-minutos">
+        Avisar em
+        <input type="number" id="alarm-minutos" min="1" max="600" step="1" value="25" inputmode="numeric">
+        min
+      </label>
+      <label class="alarm-label" for="alarm-sound">
+        Som
+        <select id="alarm-sound">
+          <option value="classico">Clássico</option>
+          <option value="suave">Suave</option>
+          <option value="urgente">Urgente</option>
+          <option value="digital">Digital</option>
+          <option value="custom">Meu áudio…</option>
+        </select>
+      </label>
+      <input type="file" id="alarm-file" accept="audio/*" hidden>
+      <button type="button" id="btn-alarm-test" class="btn secondary sm">Testar</button>
+      <button type="button" id="btn-alarm-set" class="btn sm">Ativar alarme</button>
+      <button type="button" id="btn-alarm-clear" class="btn secondary sm">Limpar</button>
+    </div>
+    <div class="actions" style="justify-content:center; margin-top: 1rem;">
       <button type="button" id="btn-toggle" class="btn">Pausar</button>
       <button type="button" id="btn-finish-open" class="btn secondary">Finalizar</button>
     </div>
@@ -64,21 +86,141 @@
   (function () {
     const STORAGE_KEY = "sessao-{{ sessao.pk }}";
     const timerEl = document.getElementById("timer");
+    const timerCard = document.getElementById("timer-card");
     const toggleBtn = document.getElementById("btn-toggle");
     const finishOpen = document.getElementById("btn-finish-open");
     const finishForm = document.getElementById("finish-form");
     const cancelFinish = document.getElementById("btn-cancel-finish");
     const segundosInput = document.getElementById("segundos_liquidos");
     const tempoResumo = document.getElementById("tempo-resumo");
+    const alarmInput = document.getElementById("alarm-minutos");
+    const alarmStatus = document.getElementById("alarm-status");
+    const alarmSoundSelect = document.getElementById("alarm-sound");
+    const alarmFileInput = document.getElementById("alarm-file");
+    const btnAlarmSet = document.getElementById("btn-alarm-set");
+    const btnAlarmClear = document.getElementById("btn-alarm-clear");
+    const btnAlarmTest = document.getElementById("btn-alarm-test");
+    const SOUND_KEY = "estudos-bb-alarm-sound";
 
-    let estado = { accumulatedMs: 0, running: true, startedAt: Date.now() };
+    let estado = {
+      accumulatedMs: 0,
+      running: true,
+      startedAt: Date.now(),
+      alarmAtMs: null,
+      alarmFired: false,
+      alarmSound: localStorage.getItem(SOUND_KEY) || "classico",
+    };
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
       if (saved && typeof saved.accumulatedMs === "number") {
-        estado = saved;
+        estado = Object.assign(estado, saved);
         if (estado.running && !estado.startedAt) estado.startedAt = Date.now();
       }
     } catch (e) {}
+
+    // migração de versão antiga do alarme
+    if (estado.alarmMinutos && !estado.alarmAtMs) {
+      estado.alarmAtMs = estado.alarmMinutos * 60 * 1000;
+      delete estado.alarmMinutos;
+    }
+
+    if (!estado.alarmSound) estado.alarmSound = "classico";
+    alarmSoundSelect.value = estado.alarmSound === "custom" ? "custom" : estado.alarmSound;
+
+    let audioCtx = null;
+    let customAudio = null;
+    let customObjectUrl = null;
+
+    function ensureAudio() {
+      if (!audioCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) audioCtx = new Ctx();
+      }
+      if (audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function toneBurst(ctx, { freq, start, dur, type, vol }) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type || "sine";
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(vol || 0.22, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + dur + 0.02);
+    }
+
+    function playPreset(kind, preview) {
+      const ctx = ensureAudio();
+      if (!ctx) return;
+      const t0 = ctx.currentTime;
+      if (kind === "suave") {
+        [523.25, 659.25, 783.99].forEach((f, i) => {
+          toneBurst(ctx, { freq: f, start: t0 + i * 0.28, dur: 0.35, type: "sine", vol: 0.14 });
+        });
+      } else if (kind === "urgente") {
+        for (let i = 0; i < (preview ? 2 : 6); i++) {
+          toneBurst(ctx, {
+            freq: i % 2 ? 980 : 720,
+            start: t0 + i * 0.22,
+            dur: 0.16,
+            type: "square",
+            vol: 0.08,
+          });
+        }
+      } else if (kind === "digital") {
+        [880, 988, 1175, 988].forEach((f, i) => {
+          toneBurst(ctx, { freq: f, start: t0 + i * 0.14, dur: 0.12, type: "triangle", vol: 0.16 });
+        });
+      } else {
+        // classico
+        const n = preview ? 2 : 4;
+        for (let i = 0; i < n; i++) {
+          toneBurst(ctx, {
+            freq: i % 2 === 0 ? 880 : 660,
+            start: t0 + i * 0.45,
+            dur: 0.28,
+            type: "sine",
+            vol: 0.22,
+          });
+        }
+      }
+    }
+
+    function playAlarmSound(preview) {
+      const kind = estado.alarmSound || "classico";
+      if (kind === "custom" && customAudio) {
+        try {
+          customAudio.pause();
+          customAudio.currentTime = 0;
+          customAudio.play();
+        } catch (e) {
+          playPreset("classico", preview);
+        }
+        return;
+      }
+      playPreset(kind === "custom" ? "classico" : kind, preview);
+    }
+
+    function setCustomFile(file) {
+      if (!file) return;
+      if (customObjectUrl) URL.revokeObjectURL(customObjectUrl);
+      customObjectUrl = URL.createObjectURL(file);
+      customAudio = new Audio(customObjectUrl);
+      customAudio.preload = "auto";
+      estado.alarmSound = "custom";
+      alarmSoundSelect.value = "custom";
+      localStorage.setItem(SOUND_KEY, "custom");
+      persist();
+      ensureAudio();
+      playAlarmSound(true);
+    }
 
     function elapsedMs() {
       if (!estado.running) return estado.accumulatedMs;
@@ -97,11 +239,53 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
     }
 
+    function updateAlarmStatus() {
+      timerCard.classList.toggle("alarm-ringing", !!estado.alarmFired);
+      if (estado.alarmFired) {
+        alarmStatus.textContent = "Alarme! Hora de parar.";
+        return;
+      }
+      if (estado.alarmAtMs != null) {
+        const restMs = estado.alarmAtMs - elapsedMs();
+        if (restMs > 0) {
+          const totalSec = Math.ceil(restMs / 1000);
+          const m = Math.floor(totalSec / 60);
+          const s = totalSec % 60;
+          alarmStatus.textContent = `Alarme em ${m}:${String(s).padStart(2, "0")}`;
+        } else {
+          alarmStatus.textContent = "Alarme ativo";
+        }
+      } else {
+        alarmStatus.textContent = "Sem alarme";
+      }
+    }
+
+    function checkAlarm() {
+      if (estado.alarmAtMs == null || estado.alarmFired) return;
+      if (elapsedMs() >= estado.alarmAtMs) {
+        estado.alarmFired = true;
+        if (estado.running) {
+          estado.accumulatedMs = elapsedMs();
+          estado.running = false;
+          estado.startedAt = null;
+        }
+        persist();
+        playAlarmSound(false);
+        try {
+          if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 400]);
+        } catch (e) {}
+        updateAlarmStatus();
+        render();
+      }
+    }
+
     function render() {
       const text = fmt(elapsedMs());
       timerEl.textContent = text;
       tempoResumo.textContent = text;
       toggleBtn.textContent = estado.running ? "Pausar" : "Continuar";
+      updateAlarmStatus();
+      checkAlarm();
     }
 
     function tick() {
@@ -109,7 +293,76 @@
       requestAnimationFrame(tick);
     }
 
+    alarmSoundSelect.addEventListener("change", () => {
+      const value = alarmSoundSelect.value;
+      if (value === "custom") {
+        alarmFileInput.click();
+        return;
+      }
+      estado.alarmSound = value;
+      localStorage.setItem(SOUND_KEY, value);
+      persist();
+      ensureAudio();
+      playAlarmSound(true);
+    });
+
+    alarmFileInput.addEventListener("change", () => {
+      const file = alarmFileInput.files && alarmFileInput.files[0];
+      if (file) {
+        setCustomFile(file);
+        return;
+      }
+      // cancelou o seletor de arquivo
+      if (customAudio) {
+        alarmSoundSelect.value = "custom";
+      } else {
+        const fallback = estado.alarmSound !== "custom" ? estado.alarmSound : "classico";
+        alarmSoundSelect.value = fallback;
+        estado.alarmSound = fallback;
+        localStorage.setItem(SOUND_KEY, fallback);
+        persist();
+      }
+    });
+
+    btnAlarmTest.addEventListener("click", () => {
+      ensureAudio();
+      if (estado.alarmSound === "custom" && !customAudio) {
+        alarmFileInput.click();
+        return;
+      }
+      playAlarmSound(true);
+    });
+
+    btnAlarmSet.addEventListener("click", () => {
+      ensureAudio();
+      const mins = parseInt(alarmInput.value, 10);
+      if (!mins || mins < 1) {
+        alarmStatus.textContent = "Informe um tempo válido (mín. 1 min).";
+        return;
+      }
+      if (estado.alarmSound === "custom" && !customAudio) {
+        alarmStatus.textContent = "Escolha um arquivo de áudio para o alarme.";
+        alarmFileInput.click();
+        return;
+      }
+      estado.alarmAtMs = elapsedMs() + mins * 60 * 1000;
+      estado.alarmFired = false;
+      timerCard.classList.remove("alarm-ringing");
+      persist();
+      updateAlarmStatus();
+      playAlarmSound(true);
+    });
+
+    btnAlarmClear.addEventListener("click", () => {
+      estado.alarmAtMs = null;
+      estado.alarmFired = false;
+      timerCard.classList.remove("alarm-ringing");
+      persist();
+      updateAlarmStatus();
+    });
+
     toggleBtn.addEventListener("click", () => {
+      ensureAudio();
       if (estado.running) {
         estado.accumulatedMs = elapsedMs();
         estado.running = false;
@@ -117,6 +370,10 @@
       } else {
         estado.running = true;
         estado.startedAt = Date.now();
+        if (estado.alarmFired) {
+          estado.alarmFired = false;
+          timerCard.classList.remove("alarm-ringing");
+        }
       }
       persist();
       render();
@@ -134,12 +391,20 @@
       finishForm.hidden = false;
       finishOpen.disabled = true;
       toggleBtn.disabled = true;
+      btnAlarmSet.disabled = true;
+      btnAlarmClear.disabled = true;
+      btnAlarmTest.disabled = true;
+      alarmSoundSelect.disabled = true;
     });
 
     cancelFinish.addEventListener("click", () => {
       finishForm.hidden = true;
       finishOpen.disabled = false;
       toggleBtn.disabled = false;
+      btnAlarmSet.disabled = false;
+      btnAlarmClear.disabled = false;
+      btnAlarmTest.disabled = false;
+      alarmSoundSelect.disabled = false;
       estado.running = true;
       estado.startedAt = Date.now();
       persist();

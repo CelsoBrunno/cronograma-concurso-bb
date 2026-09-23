@@ -5,19 +5,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Estudos BB{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}?v=5">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="{% url 'estudos:dashboard' %}">Estudos BB</a>
-    <nav>
-      <a href="{% url 'estudos:dashboard' %}">Painel</a>
-      <a href="{% url 'estudos:cronograma' %}">Cronograma</a>
-      <a href="{% url 'estudos:fila' %}">Fila do dia</a>
-      <a href="{% url 'estudos:disciplinas' %}">Disciplinas</a>
-      <a href="{% url 'estudos:iniciar_sessao' %}">Nova sessão</a>
-      <a href="{% url 'estudos:historico' %}">Histórico</a>
-    </nav>
+    <div class="topbar-inner">
+      <a class="brand" href="{% url 'estudos:dashboard' %}">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Estudos BB
+      </a>
+      <nav>
+        <a href="{% url 'estudos:dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}is-active{% endif %}">Painel</a>
+        <a href="{% url 'estudos:cronograma' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}is-active{% endif %}">Cronograma</a>
+        <a href="{% url 'estudos:fila' %}" class="{% if request.resolver_match.url_name == 'fila' %}is-active{% endif %}">Fila</a>
+        <a href="{% url 'estudos:disciplinas' %}" class="{% if request.resolver_match.url_name == 'disciplinas' or request.resolver_match.url_name == 'disciplina' %}is-active{% endif %}">Disciplinas</a>
+        <a href="{% url 'estudos:iniciar_sessao' %}" class="{% if request.resolver_match.url_name == 'iniciar_sessao' or request.resolver_match.url_name == 'sessao' %}is-active{% endif %}">Sessão</a>
+        <a href="{% url 'estudos:historico' %}" class="{% if request.resolver_match.url_name == 'historico' %}is-active{% endif %}">Histórico</a>
+      </nav>
+    </div>
   </header>
 
   <main class="container">

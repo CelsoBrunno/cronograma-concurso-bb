@@ -2,28 +2,30 @@
 {% block title %}Cronograma · Estudos BB{% endblock %}
 {% block content %}
 <section class="stack">
-  <div>
-    <h1>Cronograma</h1>
-    <p class="muted">
-      Duração das videoaulas importada do Gran (ex.: <code>00:31:42</code>).
-      No cronograma somamos +{{ plano.minutos_extra_questoes }} min por aula para questões.
-    </p>
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Plano de estudos</p>
+      <h1>Cronograma</h1>
+      <p class="muted">
+        Duração do Gran + {{ plano.minutos_extra_questoes }} min de questões por aula.
+      </p>
+    </div>
   </div>
 
-  <div class="grid grid-4">
-    <div class="card">
+  <div class="stats-strip">
+    <div class="stat">
       <div class="stat-value">{{ plano.horas_por_dia }}h</div>
       <div class="stat-label">Meta diária</div>
     </div>
-    <div class="card">
+    <div class="stat">
       <div class="stat-value">{{ resumo.dias_restantes|default:"—" }}</div>
-      <div class="stat-label">Dias de estudo restantes</div>
+      <div class="stat-label">Dias restantes</div>
     </div>
-    <div class="card">
+    <div class="stat">
       <div class="stat-value">{{ resumo.horas_restantes|default:"—" }}h</div>
-      <div class="stat-label">Carga restante estimada</div>
+      <div class="stat-label">Carga restante</div>
     </div>
-    <div class="card">
+    <div class="stat">
       <div class="stat-value">{% if resumo.data_fim %}{{ resumo.data_fim|date:"d/m" }}{% else %}—{% endif %}</div>
       <div class="stat-label">Previsão de término</div>
     </div>
