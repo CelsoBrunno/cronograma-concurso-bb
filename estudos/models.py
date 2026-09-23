@@ -204,7 +204,8 @@ class PlanoEstudo(models.Model):
     """Configuração única do cronograma (singleton id=1)."""
 
     minutos_por_dia = models.PositiveIntegerField(
-        default=120, help_text="Horas líquidas diárias em minutos (ex.: 120 = 2h)"
+        default=120,
+        help_text="Calculado a partir da data da meta: minutos do dia mais cheio",
     )
     # Segunda=0 ... Domingo=6 (igual a date.weekday())
     dias_estudo = models.JSONField(default=list)
@@ -217,6 +218,11 @@ class PlanoEstudo(models.Model):
         help_text="Minutos extras por aula para resolver questões",
     )
     data_inicio = models.DateField(null=True, blank=True)
+    data_meta = models.DateField(
+        null=True,
+        blank=True,
+        help_text="Data em que os tópicos pendentes devem estar concluídos",
+    )
     modo_distribuicao = models.CharField(
         max_length=20,
         choices=[

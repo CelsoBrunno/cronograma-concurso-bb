@@ -48,6 +48,7 @@ class PlanoEstudoAdmin(admin.ModelAdmin):
         "minutos_por_dia",
         "minutos_padrao_topico",
         "data_inicio",
+        "data_meta",
         "modo_distribuicao",
         "gerado_em",
     )

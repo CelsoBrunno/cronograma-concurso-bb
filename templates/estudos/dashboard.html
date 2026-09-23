@@ -57,8 +57,13 @@
       </div>
       {% if cronograma.tem_cronograma %}
         <p class="meta" style="margin-top:0">
-          {{ cronograma.minutos_hoje }} min hoje · término
-          {% if cronograma.data_fim %}<strong>{{ cronograma.data_fim|date:"d/m/Y" }}</strong>{% else %}—{% endif %}
+          {{ cronograma.minutos_hoje }} min hoje ·
+          {% if cronograma.data_meta %}
+          <strong>{{ cronograma.minutos_por_dia_fmt }}</strong> por dia para encerrar em
+          <strong>{{ cronograma.data_meta|date:"d/m/Y" }}</strong>
+          {% elif cronograma.data_fim %}
+          término <strong>{{ cronograma.data_fim|date:"d/m/Y" }}</strong>
+          {% endif %}
           · {{ cronograma.horas_restantes }}h restantes
         </p>
         {% if cronograma.itens_hoje %}

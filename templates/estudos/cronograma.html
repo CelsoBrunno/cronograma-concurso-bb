@@ -7,27 +7,29 @@
       <p class="eyebrow">Plano de estudos</p>
       <h1>Cronograma</h1>
       <p class="muted">
-        Duração do Gran + {{ plano.minutos_extra_questoes }} min de questões por aula.
+        Escolha o dia em que quer terminar. O sistema calcula a carga diária
+        para as aulas caberem até lá. Cada aula entra inteira
+        (vídeo do Gran + {{ plano.minutos_extra_questoes }} min de questões).
       </p>
     </div>
   </div>
 
   <div class="stats-strip">
     <div class="stat">
-      <div class="stat-value">{{ plano.horas_por_dia }}h</div>
-      <div class="stat-label">Meta diária</div>
+      <div class="stat-value">{{ resumo.minutos_por_dia_fmt }}</div>
+      <div class="stat-label">Carga necessária por dia</div>
     </div>
     <div class="stat">
-      <div class="stat-value">{{ resumo.dias_restantes|default:"—" }}</div>
-      <div class="stat-label">Dias restantes</div>
+      <div class="stat-value">{{ resumo.dias_ate_meta|default:"—" }}</div>
+      <div class="stat-label">Dias de estudo até a meta</div>
     </div>
     <div class="stat">
       <div class="stat-value">{{ resumo.horas_restantes|default:"—" }}h</div>
       <div class="stat-label">Carga restante</div>
     </div>
     <div class="stat">
-      <div class="stat-value">{% if resumo.data_fim %}{{ resumo.data_fim|date:"d/m" }}{% else %}—{% endif %}</div>
-      <div class="stat-label">Previsão de término</div>
+      <div class="stat-value">{% if plano.data_meta %}{{ plano.data_meta|date:"d/m" }}{% else %}—{% endif %}</div>
+      <div class="stat-label">Encerrar em</div>
     </div>
   </div>
 
@@ -36,8 +38,8 @@
     <h2>Configurar plano</h2>
     <div class="form-grid">
       <label>
-        Minutos por dia (líquidos)
-        <input type="number" name="minutos_por_dia" min="30" step="15" value="{{ plano.minutos_por_dia }}" required>
+        Encerrar os estudos em
+        <input type="date" name="data_meta" value="{{ plano.data_meta|date:'Y-m-d' }}" required>
       </label>
       <label>
         Estimativa fallback (sem duração)

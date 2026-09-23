@@ -188,7 +188,9 @@ def finalizar_sessao(request: HttpRequest, pk: int) -> HttpResponse:
             Topico.Status.COMPLETO,
             Topico.Status.REVISADO,
         ):
-            crono.sincronizar_conclusao(topico, redistribuir=True)
+            redistribuido = crono.sincronizar_conclusao(topico, redistribuir=True)
+            if redistribuido and redistribuido.get("erro"):
+                messages.warning(request, redistribuido["erro"])
 
     messages.success(
         request,
@@ -212,7 +214,6 @@ def cronograma_view(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         acao = request.POST.get("acao", "salvar")
         try:
-            minutos_dia = int(request.POST.get("minutos_por_dia") or 120)
             minutos_padrao = int(request.POST.get("minutos_padrao_topico") or 40)
             minutos_extra = int(request.POST.get("minutos_extra_questoes") or 15)
         except ValueError:
@@ -221,10 +222,15 @@ def cronograma_view(request: HttpRequest) -> HttpResponse:
 
         dias = [int(x) for x in request.POST.getlist("dias_estudo") if x.isdigit()]
         data_inicio_raw = request.POST.get("data_inicio") or ""
+        data_meta_raw = request.POST.get("data_meta") or ""
         try:
             data_inicio = date.fromisoformat(data_inicio_raw) if data_inicio_raw else date.today()
         except ValueError:
             data_inicio = date.today()
+        try:
+            data_meta = date.fromisoformat(data_meta_raw) if data_meta_raw else None
+        except ValueError:
+            data_meta = None
 
         modo = request.POST.get("modo_distribuicao") or "intercalar"
         if modo not in ("intercalar", "sequencial"):
@@ -232,11 +238,15 @@ def cronograma_view(request: HttpRequest) -> HttpResponse:
 
         aplicar_padrao = request.POST.get("aplicar_padrao") == "1"
 
-        plano.minutos_por_dia = max(30, minutos_dia)
+        if data_meta is None:
+            messages.error(request, "Informe a data em que quer encerrar os estudos.")
+            return redirect("estudos:cronograma")
+
         plano.minutos_padrao_topico = max(10, minutos_padrao)
         plano.minutos_extra_questoes = max(0, minutos_extra)
         plano.dias_estudo = dias or [0, 1, 2, 3, 4, 5]
         plano.data_inicio = data_inicio
+        plano.data_meta = data_meta
         plano.modo_distribuicao = modo
         plano.save()
 
@@ -247,18 +257,26 @@ def cronograma_view(request: HttpRequest) -> HttpResponse:
 
         if acao == "gerar":
             resultado = crono.gerar_cronograma(regenerar=True)
-            fim = (
-                resultado["data_fim"].strftime("%d/%m/%Y")
-                if resultado["data_fim"]
-                else "—"
-            )
+        else:
+            resultado = crono.atualizar_carga_diaria(plano)
+
+        if resultado.get("erro"):
+            messages.error(request, resultado["erro"])
+            return redirect("estudos:cronograma")
+
+        carga = crono.formatar_minutos(resultado["minutos_por_dia"])
+        meta = data_meta.strftime("%d/%m/%Y")
+        if acao == "gerar":
             messages.success(
                 request,
-                f"Cronograma gerado: {resultado['itens']} aulas · "
-                f"{resultado['dias_estudo']} dias · previsão de término {fim}.",
+                f"Para encerrar em {meta}, reserve {carga} por dia de estudo. "
+                f"{resultado['itens']} aulas em {resultado['dias_estudo']} dias.",
             )
         else:
-            messages.success(request, "Plano salvo.")
+            messages.success(
+                request,
+                f"Para encerrar em {meta}, reserve {carga} por dia de estudo.",
+            )
         return redirect("estudos:cronograma")
 
     return render(

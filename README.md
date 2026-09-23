@@ -29,10 +29,10 @@ Abra http://127.0.0.1:8000/
 ## Cronograma
 
 1. Abra **Cronograma**
-2. Ajuste minutos/dia, dias da semana e estimativa por aula
+2. Escolha a data para encerrar, os dias da semana e a estimativa por aula
 3. Clique em **Gerar / regenerar cronograma**
 
-O painel mostra o bloco de hoje. As durações das videoaulas vêm do Gran (`00:31:42` etc.); o plano soma um extra configurável para questões (padrão +15 min).
+O sistema calcula quantos minutos por dia são necessários para as aulas pendentes caberem até essa data. O painel mostra o bloco de hoje. As durações das videoaulas vêm do Gran (`00:31:42` etc.); o plano soma um extra configurável para questões (padrão +15 min).
 
 ## Fluxo típico
 
