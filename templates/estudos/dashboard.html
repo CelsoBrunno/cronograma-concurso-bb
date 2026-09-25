@@ -38,8 +38,11 @@
       <div class="stat-label">Horas hoje</div>
     </div>
     <div class="stat">
-      <div class="stat-value">{{ horas.semana_fmt }}</div>
-      <div class="stat-label">Horas na semana</div>
+      <div class="stat-value">{{ streak.dias }}</div>
+      <div class="stat-label">
+        Sequência (dias)
+        {% if streak.estudou_hoje %}· hoje ok{% else %}· falta estudar hoje{% endif %}
+      </div>
     </div>
     <div class="stat">
       <div class="stat-value">{% if questoes.taxa != None %}{{ questoes.taxa }}%{% else %}—{% endif %}</div>
@@ -48,6 +51,30 @@
         {{ questoes.acertos }} acertos · {{ questoes.erros }} erros
       </p>
     </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Esta semana</h2>
+      <a class="btn secondary sm" href="{% url 'estudos:resumo' %}">Ver resumo</a>
+    </div>
+    <p class="meta" style="margin-top:0">
+      {{ semana.horas_fmt }} · {{ semana.sessoes }} sessões ·
+      {{ semana.acertos }} acertos / {{ semana.erros }} erros
+      {% if semana.taxa != None %} · {{ semana.taxa }}%{% endif %}
+    </p>
+    {% if semana.por_disciplina %}
+    <ul class="list" style="margin-top:0.75rem">
+      {% for d in semana.por_disciplina|slice:":4" %}
+      <li>
+        <div>
+          <strong>{{ d.nome }}</strong>
+          <div class="meta">{{ d.horas_fmt }} · {{ d.acertos }}/{{ d.erros }}{% if d.taxa != None %} · {{ d.taxa }}%{% endif %}</div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </div>
 
   <div class="grid grid-2">
@@ -105,7 +132,7 @@
         {% endfor %}
       </div>
       <div class="actions" style="margin-top:1rem">
-        <a class="btn secondary sm" href="{% url 'estudos:fila' %}">Fila SRS</a>
+        <a class="btn secondary sm" href="{% url 'estudos:fila' %}">Estudar agora</a>
         <a class="btn secondary sm" href="{% url 'estudos:disciplinas' %}">Disciplinas</a>
       </div>
     </div>

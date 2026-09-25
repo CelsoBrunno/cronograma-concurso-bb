@@ -116,18 +116,66 @@ def resumo_questoes_disciplina(disciplina_id: int) -> dict:
     return {"acertos": acertos, "erros": erros, "total": total, "taxa": taxa}
 
 def fila_diaria(limite: int = 12) -> list[Topico]:
-    """Fila simples: revisões vencidas → estudando → pendentes."""
+    """Fila do dia: no ciclo, prioriza o calendário de hoje e retoma o ponteiro."""
+    from . import cronograma as crono
+    from .models import ItemCronograma, PlanoEstudo
+
     hoje = timezone.localdate()
-    ids: list[int] = []
+    plano = PlanoEstudo.get()
+
+    if plano.modo_distribuicao == "ciclo":
+        escolhidos: list[Topico] = []
+        ids: set[int] = set()
+
+        for item in (
+            ItemCronograma.objects.filter(data=hoje, concluido=False)
+            .select_related("topico", "topico__disciplina")
+            .order_by("ordem")
+        ):
+            if item.topico_id not in ids:
+                escolhidos.append(item.topico)
+                ids.add(item.topico_id)
+            if len(escolhidos) >= limite:
+                return escolhidos
+
+        for t in (
+            Topico.objects.filter(proxima_revisao__lte=hoje)
+            .exclude(status=Topico.Status.PENDENTE)
+            .exclude(id__in=ids)
+            .select_related("disciplina")
+            .order_by("proxima_revisao", "ordem")[: max(0, limite - len(escolhidos))]
+        ):
+            escolhidos.append(t)
+            ids.add(t.id)
+
+        if len(escolhidos) >= limite:
+            return escolhidos
+
+        fila = crono.ordenar_ciclo(list(crono.topicos_pendentes_cronograma()))
+        if not fila:
+            return escolhidos
+        n = len(fila)
+        inicio = plano.ciclo_ponteiro % n
+        for i in range(n):
+            t = fila[(inicio + i) % n]
+            if t.id in ids:
+                continue
+            escolhidos.append(t)
+            ids.add(t.id)
+            if len(escolhidos) >= limite:
+                break
+        return escolhidos
+
+    ids_list: list[int] = []
     escolhidos: list[Topico] = []
 
     def add(qs, remaining: int) -> int:
-        nonlocal ids, escolhidos
+        nonlocal ids_list, escolhidos
         if remaining <= 0:
             return 0
-        for t in qs.exclude(id__in=ids)[:remaining]:
+        for t in qs.exclude(id__in=ids_list)[:remaining]:
             escolhidos.append(t)
-            ids.append(t.id)
+            ids_list.append(t.id)
             remaining -= 1
         return remaining
 
@@ -148,7 +196,7 @@ def fila_diaria(limite: int = 12) -> list[Topico]:
     add(
         Topico.objects.filter(status=Topico.Status.PENDENTE)
         .select_related("disciplina")
-        .order_by("disciplina__ordem", "ordem"),
+        .order_by("disciplina__peso", "disciplina__ordem", "ordem"),
         restante,
     )
     return escolhidos
@@ -172,3 +220,89 @@ def sessao_ativa() -> SessaoEstudo | None:
         .order_by("-iniciada_em")
         .first()
     )
+
+
+def calcular_streak() -> dict:
+    """Dias consecutivos com pelo menos uma sessão finalizada."""
+    datas = {
+        d
+        for d in SessaoEstudo.objects.filter(ativa=False, finalizada_em__isnull=False)
+        .dates("finalizada_em", "day")
+    }
+    hoje = timezone.localdate()
+    cursor = hoje if hoje in datas else hoje - timedelta(days=1)
+    streak = 0
+    while cursor in datas:
+        streak += 1
+        cursor -= timedelta(days=1)
+    estudou_hoje = hoje in datas
+    return {"dias": streak, "estudou_hoje": estudou_hoje}
+
+
+def resumo_semanal() -> dict:
+    hoje = timezone.localdate()
+    inicio = hoje - timedelta(days=hoje.weekday())
+    qs = SessaoEstudo.objects.filter(
+        ativa=False, finalizada_em__date__gte=inicio, finalizada_em__date__lte=hoje
+    )
+    segundos = qs.aggregate(s=Sum("segundos_liquidos"))["s"] or 0
+    acertos = qs.aggregate(s=Sum("acertos"))["s"] or 0
+    erros = qs.aggregate(s=Sum("erros"))["s"] or 0
+    total_q = acertos + erros
+    taxa = round(100.0 * acertos / total_q, 1) if total_q else None
+
+    por_disc = []
+    rows = (
+        qs.filter(disciplina_id__isnull=False)
+        .values("disciplina_id", "disciplina__nome")
+        .annotate(
+            segundos=Sum("segundos_liquidos"),
+            acertos=Sum("acertos"),
+            erros=Sum("erros"),
+        )
+        .order_by("-segundos")
+    )
+    for row in rows:
+        tq = (row["acertos"] or 0) + (row["erros"] or 0)
+        por_disc.append(
+            {
+                "nome": row["disciplina__nome"],
+                "segundos": row["segundos"] or 0,
+                "horas_fmt": formatar_segundos(row["segundos"] or 0),
+                "acertos": row["acertos"] or 0,
+                "erros": row["erros"] or 0,
+                "taxa": round(100.0 * (row["acertos"] or 0) / tq, 1) if tq else None,
+            }
+        )
+
+    por_dia = []
+    for i in range(7):
+        dia = inicio + timedelta(days=i)
+        if dia > hoje:
+            break
+        s = (
+            qs.filter(finalizada_em__date=dia).aggregate(s=Sum("segundos_liquidos"))["s"]
+            or 0
+        )
+        por_dia.append(
+            {
+                "data": dia,
+                "segundos": s,
+                "horas_fmt": formatar_segundos(s),
+                "tem_estudo": s > 0,
+            }
+        )
+
+    return {
+        "inicio": inicio,
+        "fim": hoje,
+        "segundos": segundos,
+        "horas_fmt": formatar_segundos(segundos),
+        "acertos": acertos,
+        "erros": erros,
+        "total_questoes": total_q,
+        "taxa": taxa,
+        "sessoes": qs.count(),
+        "por_disciplina": por_disc,
+        "por_dia": por_dia,
+    }

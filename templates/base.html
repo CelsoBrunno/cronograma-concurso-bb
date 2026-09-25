@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Estudos BB{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/app.css' %}?v=5">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}?v=11">
 </head>
 <body>
   <header class="topbar">
@@ -15,12 +15,25 @@
         Estudos BB
       </a>
       <nav>
-        <a href="{% url 'estudos:dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}is-active{% endif %}">Painel</a>
-        <a href="{% url 'estudos:cronograma' %}" class="{% if request.resolver_match.url_name == 'cronograma' %}is-active{% endif %}">Cronograma</a>
-        <a href="{% url 'estudos:fila' %}" class="{% if request.resolver_match.url_name == 'fila' %}is-active{% endif %}">Fila</a>
-        <a href="{% url 'estudos:disciplinas' %}" class="{% if request.resolver_match.url_name == 'disciplinas' or request.resolver_match.url_name == 'disciplina' %}is-active{% endif %}">Disciplinas</a>
-        <a href="{% url 'estudos:iniciar_sessao' %}" class="{% if request.resolver_match.url_name == 'iniciar_sessao' or request.resolver_match.url_name == 'sessao' %}is-active{% endif %}">Sessão</a>
-        <a href="{% url 'estudos:historico' %}" class="{% if request.resolver_match.url_name == 'historico' %}is-active{% endif %}">Histórico</a>
+        <a
+          href="{% url 'estudos:fila' %}"
+          class="nav-cta {% if request.resolver_match.url_name == 'fila' %}is-active{% endif %}"
+        >Estudar agora</a>
+
+        {% with name=request.resolver_match.url_name %}
+        <details class="nav-more {% if name != 'fila' %}is-section-active{% endif %}">
+          <summary>Mais</summary>
+          <div class="nav-more-menu">
+            <a href="{% url 'estudos:dashboard' %}" class="{% if name == 'dashboard' %}is-active{% endif %}">Painel</a>
+            <a href="{% url 'estudos:cronograma' %}" class="{% if name == 'cronograma' %}is-active{% endif %}">Cronograma</a>
+            <a href="{% url 'estudos:resumo' %}" class="{% if name == 'resumo' %}is-active{% endif %}">Resumo</a>
+            <a href="{% url 'estudos:disciplinas' %}" class="{% if name == 'disciplinas' or name == 'disciplina' %}is-active{% endif %}">Disciplinas</a>
+            <a href="{% url 'estudos:iniciar_sessao' %}" class="{% if name == 'iniciar_sessao' or name == 'sessao' %}is-active{% endif %}">Sessão</a>
+            <a href="{% url 'estudos:historico' %}" class="{% if name == 'historico' %}is-active{% endif %}">Histórico</a>
+            <a href="{% url 'estudos:backup' %}" class="{% if name == 'backup' or name == 'backup_exportar' %}is-active{% endif %}">Backup</a>
+          </div>
+        </details>
+        {% endwith %}
       </nav>
     </div>
   </header>

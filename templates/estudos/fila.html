@@ -1,10 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Fila do dia · Estudos BB{% endblock %}
+{% block title %}Estudar agora · Estudos BB{% endblock %}
 {% block content %}
 <section class="stack">
   <div>
-    <h1>Fila do dia</h1>
-    <p class="muted">Revisões vencidas → estudando → pendentes (repetição espaçada simples).</p>
+    <h1>Estudar agora</h1>
+    <p class="muted">
+      {% if plano and plano.modo_distribuicao == "ciclo" %}
+        Ciclo de estudos: faça o que couber hoje; amanhã o sistema retoma a sequência.
+      {% else %}
+        O que fazer hoje, na ordem: revisões vencidas → em andamento → novos tópicos.
+      {% endif %}
+    </p>
   </div>
 
   {% if sessao_aberta %}
@@ -27,11 +33,11 @@
         </div>
       </div>
       <div class="actions">
-        <a class="btn" href="{% url 'estudos:iniciar_sessao' %}?topico={{ t.id }}">Iniciar sessão</a>
+        <a class="btn" href="{% url 'estudos:iniciar_sessao' %}?topico={{ t.id }}">Estudar</a>
       </div>
     </li>
     {% empty %}
-    <li><span class="muted">Fila vazia.</span></li>
+    <li><span class="muted">Nada na fila por enquanto. Abra Disciplinas ou o Cronograma em Mais.</span></li>
     {% endfor %}
   </ul>
 </section>

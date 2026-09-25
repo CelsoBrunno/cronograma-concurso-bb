@@ -17,33 +17,43 @@
 
   {% if sessao.ativa %}
   <div class="card timer-card" id="timer-card">
-    <div class="timer" id="timer">00:00:00</div>
-    <p class="alarm-status" id="alarm-status">Sem alarme</p>
-    <div class="alarm-row">
-      <label class="alarm-label" for="alarm-minutos">
-        Avisar em
-        <input type="number" id="alarm-minutos" min="1" max="600" step="1" value="25" inputmode="numeric">
-        min
-      </label>
-      <label class="alarm-label" for="alarm-sound">
-        Som
-        <select id="alarm-sound">
-          <option value="classico">Clássico</option>
-          <option value="suave">Suave</option>
-          <option value="urgente">Urgente</option>
-          <option value="digital">Digital</option>
-          <option value="custom">Meu áudio…</option>
-        </select>
-      </label>
-      <input type="file" id="alarm-file" accept="audio/*" hidden>
-      <button type="button" id="btn-alarm-test" class="btn secondary sm">Testar</button>
-      <button type="button" id="btn-alarm-set" class="btn sm">Ativar alarme</button>
-      <button type="button" id="btn-alarm-clear" class="btn secondary sm">Limpar</button>
+    <div class="timer-face">
+      <div class="timer" id="timer">00:00:00</div>
+      <p class="alarm-status" id="alarm-status">Sem alarme</p>
     </div>
-    <div class="actions" style="justify-content:center; margin-top: 1rem;">
+
+    <div class="timer-main-actions">
       <button type="button" id="btn-toggle" class="btn">Pausar</button>
       <button type="button" id="btn-finish-open" class="btn secondary">Finalizar</button>
     </div>
+
+    <details class="alarm-panel">
+      <summary>Alarme</summary>
+      <div class="alarm-body">
+        <div class="alarm-fields">
+          <label class="alarm-field" for="alarm-minutos">
+            <span>Avisar em (min)</span>
+            <input type="number" id="alarm-minutos" min="1" max="600" step="1" value="25" inputmode="numeric">
+          </label>
+          <label class="alarm-field" for="alarm-sound">
+            <span>Som</span>
+            <select id="alarm-sound">
+              <option value="classico">Clássico</option>
+              <option value="suave">Suave</option>
+              <option value="urgente">Urgente</option>
+              <option value="digital">Digital</option>
+              <option value="custom">Meu áudio…</option>
+            </select>
+          </label>
+        </div>
+        <input type="file" id="alarm-file" accept="audio/*" hidden>
+        <div class="alarm-actions">
+          <button type="button" id="btn-alarm-set" class="btn sm">Ativar</button>
+          <button type="button" id="btn-alarm-test" class="btn secondary sm">Testar</button>
+          <button type="button" id="btn-alarm-clear" class="btn secondary sm">Limpar</button>
+        </div>
+      </div>
+    </details>
   </div>
 
   <form method="post" action="{% url 'estudos:finalizar_sessao' sessao.pk %}" id="finish-form" class="card stack" hidden>
@@ -100,6 +110,7 @@
     const btnAlarmSet = document.getElementById("btn-alarm-set");
     const btnAlarmClear = document.getElementById("btn-alarm-clear");
     const btnAlarmTest = document.getElementById("btn-alarm-test");
+    const alarmPanel = timerCard.querySelector(".alarm-panel");
     const SOUND_KEY = "estudos-bb-alarm-sound";
 
     let estado = {
@@ -241,6 +252,9 @@
 
     function updateAlarmStatus() {
       timerCard.classList.toggle("alarm-ringing", !!estado.alarmFired);
+      if (alarmPanel && (estado.alarmAtMs != null || estado.alarmFired)) {
+        alarmPanel.open = true;
+      }
       if (estado.alarmFired) {
         alarmStatus.textContent = "Alarme! Hora de parar.";
         return;

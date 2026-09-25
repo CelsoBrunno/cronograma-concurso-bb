@@ -2,17 +2,23 @@
 {% block title %}Nova sessão · Estudos BB{% endblock %}
 {% block content %}
 <section class="stack">
-  <div>
-    <h1>Nova sessão</h1>
-    <p class="muted">Cronômetro + log de questões no mesmo fluxo ao finalizar.</p>
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Cronômetro + questões</p>
+      <h1>Nova sessão</h1>
+      <p class="muted">
+        Prefira escolher um <strong>tópico</strong>: assim o progresso, o cronograma e
+        os acertos/erros por matéria ficam corretos.
+      </p>
+    </div>
   </div>
 
   <form method="post" class="card stack">
     {% csrf_token %}
     <label>
-      Disciplina (opcional)
+      Disciplina
       <select name="disciplina" id="disciplina">
-        <option value="">— livre / sem disciplina —</option>
+        <option value="">— escolha (recomendado) —</option>
         {% for d in disciplinas %}
         <option value="{{ d.id }}" {% if disciplina and disciplina.id == d.id %}selected{% endif %}>{{ d.nome }}</option>
         {% endfor %}
@@ -20,9 +26,9 @@
     </label>
 
     <label>
-      Tópico (opcional)
+      Tópico
       <select name="topico" id="topico">
-        <option value="">— sem tópico específico —</option>
+        <option value="">— escolha um tópico (recomendado) —</option>
         {% if topico %}
         <option value="{{ topico.id }}" selected>{{ topico.titulo }}</option>
         {% endif %}
@@ -34,9 +40,12 @@
       </select>
     </label>
 
+    <p class="meta">Dica: abra por Estudar agora ou pelo cronograma do dia — o tópico já vem preenchido.</p>
+
     <div class="actions">
       <button type="submit">Iniciar cronômetro</button>
       <a class="btn secondary" href="{% url 'estudos:dashboard' %}">Cancelar</a>
+      <a class="btn secondary" href="{% url 'estudos:fila' %}">Estudar agora</a>
     </div>
   </form>
 </section>

@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+import shutil
 from datetime import date
+from pathlib import Path
 
+from django.conf import settings
 from django.contrib import messages
-from django.http import HttpRequest, HttpResponse
+from django.http import FileResponse, HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
 from django.views.decorators.http import require_http_methods, require_POST
 
 from . import cronograma as crono
@@ -29,17 +33,22 @@ def dashboard(request: HttpRequest) -> HttpResponse:
                 for s, _ in Topico.Status.choices
             },
             "cronograma": resumo,
+            "streak": services.calcular_streak(),
+            "semana": services.resumo_semanal(),
         },
     )
 
 
 def fila(request: HttpRequest) -> HttpResponse:
+    from .models import PlanoEstudo
+
     return render(
         request,
         "estudos/fila.html",
         {
             "fila": services.fila_diaria(20),
             "sessao_aberta": services.sessao_ativa(),
+            "plano": PlanoEstudo.get(),
         },
     )
 
@@ -232,23 +241,31 @@ def cronograma_view(request: HttpRequest) -> HttpResponse:
         except ValueError:
             data_meta = None
 
-        modo = request.POST.get("modo_distribuicao") or "intercalar"
-        if modo not in ("intercalar", "sequencial"):
-            modo = "intercalar"
+        modo = request.POST.get("modo_distribuicao") or "ciclo"
+        if modo not in ("ciclo", "intercalar", "sequencial", "prioridade"):
+            modo = "ciclo"
 
         aplicar_padrao = request.POST.get("aplicar_padrao") == "1"
+        incluir_questoes = request.POST.get("incluir_tempo_questoes") == "1"
 
         if data_meta is None:
             messages.error(request, "Informe a data em que quer encerrar os estudos.")
             return redirect("estudos:cronograma")
 
+        modo_anterior = plano.modo_distribuicao
         plano.minutos_padrao_topico = max(10, minutos_padrao)
         plano.minutos_extra_questoes = max(0, minutos_extra)
+        plano.incluir_tempo_questoes = incluir_questoes
         plano.dias_estudo = dias or [0, 1, 2, 3, 4, 5]
         plano.data_inicio = data_inicio
         plano.data_meta = data_meta
         plano.modo_distribuicao = modo
+        if modo == "ciclo" and (modo_anterior != "ciclo" or acao == "gerar"):
+            plano.ciclo_ponteiro = 0
         plano.save()
+
+        crono.ensure_pesos_disciplinas()
+        crono.aplicar_estimativas(plano)
 
         if aplicar_padrao:
             Topico.objects.filter(minutos_video=0).update(
@@ -267,10 +284,13 @@ def cronograma_view(request: HttpRequest) -> HttpResponse:
         carga = crono.formatar_minutos(resultado["minutos_por_dia"])
         meta = data_meta.strftime("%d/%m/%Y")
         if acao == "gerar":
+            extra = ""
+            if modo == "ciclo":
+                extra = " Modo ciclo: matérias importantes aparecem mais vezes, intercaladas."
             messages.success(
                 request,
                 f"Para encerrar em {meta}, reserve {carga} por dia de estudo. "
-                f"{resultado['itens']} aulas em {resultado['dias_estudo']} dias.",
+                f"{resultado['itens']} aulas em {resultado['dias_estudo']} dias.{extra}",
             )
         else:
             messages.success(
@@ -288,5 +308,60 @@ def cronograma_view(request: HttpRequest) -> HttpResponse:
             "dias": crono.dias_cronograma(),
             "dias_opcoes": list(crono.DIAS_NOME.items()),
             "fmt_min": crono.formatar_minutos,
+            "ciclo_padrao": crono.descrever_ciclo() if plano.modo_distribuicao == "ciclo" else [],
         },
     )
+
+
+def resumo(request: HttpRequest) -> HttpResponse:
+    return render(
+        request,
+        "estudos/resumo.html",
+        {
+            "semana": services.resumo_semanal(),
+            "streak": services.calcular_streak(),
+            "horas": services.resumo_horas(),
+            "questoes": services.resumo_questoes(),
+            "progresso": services.progresso_por_disciplina(),
+        },
+    )
+
+
+@require_http_methods(["GET", "POST"])
+def backup(request: HttpRequest) -> HttpResponse:
+    db_path = Path(settings.DATABASES["default"]["NAME"])
+    if request.method == "POST":
+        arquivo = request.FILES.get("arquivo")
+        if not arquivo or not arquivo.name.endswith(".sqlite3"):
+            messages.error(request, "Envie um arquivo .sqlite3 válido.")
+            return redirect("estudos:backup")
+        bak = db_path.with_suffix(".sqlite3.bak")
+        if db_path.exists():
+            shutil.copy2(db_path, bak)
+        with open(db_path, "wb") as dest:
+            for chunk in arquivo.chunks():
+                dest.write(chunk)
+        messages.success(
+            request,
+            "Backup restaurado. Reinicie o servidor (pare e rode de novo) para carregar os dados.",
+        )
+        return redirect("estudos:backup")
+
+    return render(
+        request,
+        "estudos/backup.html",
+        {
+            "db_nome": db_path.name,
+            "db_existe": db_path.exists(),
+            "db_tamanho": db_path.stat().st_size if db_path.exists() else 0,
+        },
+    )
+
+
+def backup_exportar(request: HttpRequest) -> HttpResponse:
+    db_path = Path(settings.DATABASES["default"]["NAME"])
+    if not db_path.exists():
+        messages.error(request, "Banco local não encontrado.")
+        return redirect("estudos:backup")
+    nome = f"estudos-bb-{timezone.localdate().isoformat()}.sqlite3"
+    return FileResponse(open(db_path, "rb"), as_attachment=True, filename=nome)

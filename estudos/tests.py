@@ -99,7 +99,7 @@ class CronogramaViewTests(TestCase):
             )
         cliente = Client()
         pagina = cliente.get("/cronograma/")
-        self.assertContains(pagina, "Encerrar os estudos em")
+        self.assertContains(pagina, "Encerrar em")
         self.assertNotContains(pagina, "Minutos por dia")
 
         resposta = cliente.post(
@@ -121,3 +121,49 @@ class CronogramaViewTests(TestCase):
         self.assertFalse(
             ItemCronograma.objects.filter(data__gt=date(2026, 9, 29)).exists()
         )
+
+
+class CicloEstudosTests(TestCase):
+    def setUp(self):
+        self.ban = Disciplina.objects.create(nome="Conhecimentos Bancários", ordem=1, peso=1)
+        self.port = Disciplina.objects.create(nome="Língua Portuguesa", ordem=2, peso=3)
+        self.mat = Disciplina.objects.create(nome="Matemática", ordem=3, peso=4)
+        for disc, n in ((self.ban, 4), (self.port, 3), (self.mat, 2)):
+            for i in range(n):
+                Topico.objects.create(
+                    disciplina=disc,
+                    titulo=f"{disc.nome} {i}",
+                    ordem=i,
+                    minutos_video=30,
+                    minutos_estimados=30,
+                )
+
+    def test_ciclo_intercala_com_mais_blocos_para_prioridade(self):
+        fila = crono.ordenar_ciclo(list(Topico.objects.select_related("disciplina")))
+        self.assertEqual(len(fila), 9)
+        # Nos primeiros itens, Bancários deve aparecer antes de esgotar as outras.
+        primeiros = [t.disciplina_id for t in fila[:6]]
+        self.assertIn(self.ban.id, primeiros)
+        self.assertIn(self.port.id, primeiros)
+        # Não pode ser "todas de Bancários primeiro" (modo prioridade).
+        self.assertNotEqual(
+            [t.disciplina_id for t in fila[:4]],
+            [self.ban.id] * 4,
+        )
+
+    def test_slots_maior_para_peso_menor(self):
+        self.assertGreater(crono.slots_disciplina(1), crono.slots_disciplina(4))
+        self.assertGreaterEqual(crono.slots_disciplina(9), 1)
+
+    def test_gerar_cronograma_modo_ciclo(self):
+        plano = PlanoEstudo.get()
+        plano.dias_estudo = [0, 1, 2, 3, 4, 5, 6]
+        plano.data_inicio = date(2026, 9, 28)
+        plano.data_meta = date(2026, 10, 10)
+        plano.modo_distribuicao = "ciclo"
+        plano.minutos_extra_questoes = 0
+        plano.save()
+        resultado = crono.gerar_cronograma(regenerar=True, a_partir_de=date(2026, 9, 28))
+        self.assertIsNone(resultado["erro"])
+        self.assertEqual(resultado["itens"], 9)
+        self.assertEqual(PlanoEstudo.get().ciclo_ponteiro, 0)

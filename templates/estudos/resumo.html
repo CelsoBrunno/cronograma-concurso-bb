@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Resumo semanal · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Acompanhamento</p>
+      <h1>Resumo semanal</h1>
+      <p class="muted">
+        {{ semana.inicio|date:"d/m" }} — {{ semana.fim|date:"d/m/Y" }}
+        · sequência atual: <strong>{{ streak.dias }} dia{{ streak.dias|pluralize }}</strong>
+      </p>
+    </div>
+    <div class="actions">
+      <a class="btn secondary" href="{% url 'estudos:dashboard' %}">Painel</a>
+    </div>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="stat-value">{{ semana.horas_fmt }}</div>
+      <div class="stat-label">Horas na semana</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">{{ semana.sessoes }}</div>
+      <div class="stat-label">Sessões</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">{{ semana.acertos }}/{{ semana.erros }}</div>
+      <div class="stat-label">Acertos / erros</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">{% if semana.taxa != None %}{{ semana.taxa }}%{% else %}—{% endif %}</div>
+      <div class="stat-label">Aproveitamento</div>
+    </div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-head"><h2>Por dia</h2></div>
+      <ul class="list">
+        {% for dia in semana.por_dia %}
+        <li>
+          <div>
+            <strong>{{ dia.data|date:"D d/m" }}</strong>
+            <div class="meta">{% if dia.tem_estudo %}{{ dia.horas_fmt }}{% else %}sem estudo{% endif %}</div>
+          </div>
+          {% if dia.tem_estudo %}<span class="badge completo">ok</span>{% else %}<span class="badge pendente">—</span>{% endif %}
+        </li>
+        {% empty %}
+        <li><span class="muted">Nenhuma sessão nesta semana.</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Por disciplina (semana)</h2></div>
+      <ul class="list">
+        {% for d in semana.por_disciplina %}
+        <li>
+          <div>
+            <strong>{{ d.nome }}</strong>
+            <div class="meta">
+              {{ d.horas_fmt }} · {{ d.acertos }} acertos · {{ d.erros }} erros
+              {% if d.taxa != None %} · {{ d.taxa }}%{% endif %}
+            </div>
+          </div>
+        </li>
+        {% empty %}
+        <li><span class="muted">Sem questões/horas por disciplina nesta semana.</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>Totais gerais</h2></div>
+    <p class="meta">
+      Tempo total: <strong>{{ horas.total_fmt }}</strong> ·
+      Questões: <strong>{{ questoes.acertos }}</strong> acertos /
+      <strong>{{ questoes.erros }}</strong> erros
+      {% if questoes.taxa != None %} ({{ questoes.taxa }}%){% endif %}
+    </p>
+  </div>
+</section>
+{% endblock %}

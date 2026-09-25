@@ -5,8 +5,10 @@ from .models import Disciplina, ItemCronograma, PlanoEstudo, SessaoEstudo, Topic
 
 @admin.register(Disciplina)
 class DisciplinaAdmin(admin.ModelAdmin):
-    list_display = ("ordem", "nome")
-    ordering = ("ordem",)
+    list_display = ("nome", "peso", "ordem")
+    list_display_links = ("nome",)
+    ordering = ("peso", "ordem")
+    list_editable = ("peso",)
 
 
 @admin.register(Topico)
@@ -47,9 +49,11 @@ class PlanoEstudoAdmin(admin.ModelAdmin):
     list_display = (
         "minutos_por_dia",
         "minutos_padrao_topico",
+        "incluir_tempo_questoes",
         "data_inicio",
         "data_meta",
         "modo_distribuicao",
+        "ciclo_ponteiro",
         "gerado_em",
     )
 

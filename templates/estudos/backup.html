@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Backup · Estudos BB{% endblock %}
+{% block content %}
+<section class="stack">
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Segurança dos dados</p>
+      <h1>Backup</h1>
+      <p class="muted">Exporte o banco SQLite para guardar, ou restaure um arquivo anterior.</p>
+    </div>
+  </div>
+
+  <div class="card stack">
+    <h2>Exportar</h2>
+    <p class="muted" style="margin:0">
+      Arquivo atual: <code>{{ db_nome }}</code>
+      {% if db_existe %}· {{ db_tamanho|filesizeformat }}{% else %}· não encontrado{% endif %}
+    </p>
+    <div class="actions">
+      <a class="btn" href="{% url 'estudos:backup_exportar' %}">Baixar backup (.sqlite3)</a>
+    </div>
+  </div>
+
+  <form method="post" enctype="multipart/form-data" class="card stack">
+    {% csrf_token %}
+    <h2>Restaurar</h2>
+    <p class="muted" style="margin:0">
+      Substitui o banco local. Um arquivo <code>.bak</code> é criado antes.
+      Depois da restauração, reinicie o servidor.
+    </p>
+    <label>
+      Arquivo .sqlite3
+      <input type="file" name="arquivo" accept=".sqlite3" required>
+    </label>
+    <div class="actions">
+      <button type="submit" class="btn">Restaurar backup</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

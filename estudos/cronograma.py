@@ -31,7 +31,66 @@ def topicos_pendentes_cronograma():
     )
 
 
+def slots_disciplina(peso: int) -> int:
+    """Mais prioridade na prova (peso menor) → mais blocos no ciclo."""
+    peso = max(1, int(peso or 50))
+    return max(1, 6 - ((peso - 1) // 2))
+
+
+def padrao_ciclo(disciplinas: list) -> list[int]:
+    """Lista intercalada de disciplina_ids; peso menor → mais aparições no ciclo."""
+    ordenadas = sorted(disciplinas, key=lambda d: (d.peso, d.ordem, d.id))
+    restantes = {d.id: slots_disciplina(d.peso) for d in ordenadas}
+    padrao: list[int] = []
+    while any(restantes.values()):
+        for disc in ordenadas:
+            if restantes[disc.id] > 0:
+                padrao.append(disc.id)
+                restantes[disc.id] -= 1
+    return padrao
+
+
+def ordenar_ciclo(topicos: list[Topico]) -> list[Topico]:
+    """Rodízio ponderado: matérias importantes aparecem mais, sem esgotar uma só."""
+    ensure_pesos_disciplinas()
+    if not topicos:
+        return []
+
+    por_disc: dict[int, deque[Topico]] = defaultdict(deque)
+    disciplinas_map: dict[int, object] = {}
+    for t in sorted(topicos, key=lambda x: (x.disciplina.peso, x.ordem, x.id)):
+        por_disc[t.disciplina_id].append(t)
+        disciplinas_map[t.disciplina_id] = t.disciplina
+
+    padrao = padrao_ciclo(list(disciplinas_map.values()))
+    if not padrao:
+        return list(topicos)
+
+    resultado: list[Topico] = []
+    while any(por_disc.values()):
+        avancou = False
+        for did in padrao:
+            if por_disc[did]:
+                resultado.append(por_disc[did].popleft())
+                avancou = True
+        if not avancou:
+            # Disciplinas sem slot no padrão (nome fora do mapa BB) — esvazia o resto.
+            for fila in por_disc.values():
+                resultado.extend(fila)
+                fila.clear()
+            break
+    return resultado
+
+
 def ordenar_topicos(topicos: list[Topico], modo: str) -> list[Topico]:
+    if modo == "ciclo":
+        return ordenar_ciclo(topicos)
+    if modo == "prioridade":
+        ensure_pesos_disciplinas()
+        return sorted(
+            topicos,
+            key=lambda t: (t.disciplina.peso, t.disciplina.ordem, t.ordem, t.id),
+        )
     if modo != "intercalar":
         return list(topicos)
 
@@ -51,6 +110,86 @@ def ordenar_topicos(topicos: list[Topico], modo: str) -> list[Topico]:
     return resultado
 
 
+def descrever_ciclo() -> list[dict]:
+    """Para a UI: quantos blocos cada disciplina tem no padrão do ciclo."""
+    from .models import Disciplina
+
+    ensure_pesos_disciplinas()
+    discs = list(Disciplina.objects.order_by("peso", "ordem", "id"))
+    return [
+        {
+            "nome": d.nome,
+            "peso": d.peso,
+            "blocos": slots_disciplina(d.peso),
+        }
+        for d in discs
+    ]
+
+
+def avancar_ponteiro_ciclo(topico: Topico | None = None) -> None:
+    """Após concluir/estudar: avança o ponteiro para retomar o ciclo no próximo dia."""
+    plano = PlanoEstudo.get()
+    if plano.modo_distribuicao != "ciclo":
+        return
+    fila = ordenar_ciclo(list(topicos_pendentes_cronograma()))
+    if not fila:
+        plano.ciclo_ponteiro = 0
+        plano.save(update_fields=["ciclo_ponteiro", "atualizado_em"])
+        return
+    if topico is not None:
+        # Se o tópico ainda está na fila (só estudando), aponta para o próximo depois dele.
+        ids = [t.id for t in fila]
+        if topico.id in ids:
+            plano.ciclo_ponteiro = (ids.index(topico.id) + 1) % len(fila)
+        else:
+            plano.ciclo_ponteiro = (plano.ciclo_ponteiro + 1) % len(fila)
+    else:
+        plano.ciclo_ponteiro = (plano.ciclo_ponteiro + 1) % len(fila)
+    plano.save(update_fields=["ciclo_ponteiro", "atualizado_em"])
+
+
+def resetar_ponteiro_ciclo() -> None:
+    plano = PlanoEstudo.get()
+    if plano.ciclo_ponteiro != 0:
+        plano.ciclo_ponteiro = 0
+        plano.save(update_fields=["ciclo_ponteiro", "atualizado_em"])
+
+
+PESOS_PROVA_BB = {
+    "Conhecimentos Bancários": 1,
+    "Matemática Financeira": 2,
+    "Língua Portuguesa": 3,
+    "Matemática": 4,
+    "Conhecimentos de Informática": 5,
+    "Vendas e Negociação": 6,
+    "Atualidades do Mercado Financeiro": 7,
+    "Língua Inglesa": 8,
+    "Redação Discursiva": 9,
+}
+
+
+def ensure_pesos_disciplinas() -> None:
+    from .models import Disciplina
+
+    for nome, peso in PESOS_PROVA_BB.items():
+        Disciplina.objects.filter(nome=nome).exclude(peso=peso).update(peso=peso)
+
+
+def aplicar_estimativas(plano: PlanoEstudo) -> None:
+    """Vídeo real (+ questões se ligado), ou fallback quando não há duração."""
+    extra = plano.minutos_extra_questoes if plano.incluir_tempo_questoes else 0
+    for topico in Topico.objects.all():
+        if topico.minutos_video > 0:
+            estimado = topico.minutos_video + extra
+        elif topico.minutos_estimados <= 0:
+            estimado = plano.minutos_padrao_topico
+        else:
+            continue
+        if topico.minutos_estimados != estimado:
+            topico.minutos_estimados = estimado
+            topico.save(update_fields=["minutos_estimados"])
+
+
 def dias_permitidos(dias_estudo: list[int]) -> set[int]:
     return set(dias_estudo) or {0, 1, 2, 3, 4, 5}
 
@@ -66,20 +205,6 @@ def listar_dias_estudo(inicio: date, fim: date, dias_estudo: list[int]) -> list[
             dias.append(atual)
         atual += timedelta(days=1)
     return dias
-
-
-def aplicar_estimativas(plano: PlanoEstudo) -> None:
-    """Vídeo real + buffer de questões, ou o fallback quando não há duração."""
-    for topico in Topico.objects.all():
-        if topico.minutos_video > 0:
-            estimado = topico.minutos_video + plano.minutos_extra_questoes
-        elif topico.minutos_estimados <= 0:
-            estimado = plano.minutos_padrao_topico
-        else:
-            continue
-        if topico.minutos_estimados != estimado:
-            topico.minutos_estimados = estimado
-            topico.save(update_fields=["minutos_estimados"])
 
 
 def _minutos_topico(topico: Topico, padrao: int) -> int:
@@ -256,7 +381,11 @@ def gerar_cronograma(*, regenerar: bool = True, a_partir_de: date | None = None)
             minutos_total += minutos
 
         plano.gerado_em = timezone.now()
-        plano.save(update_fields=["gerado_em", "atualizado_em"])
+        update_fields = ["gerado_em", "atualizado_em"]
+        if plano.modo_distribuicao == "ciclo":
+            plano.ciclo_ponteiro = 0
+            update_fields.append("ciclo_ponteiro")
+        plano.save(update_fields=update_fields)
 
     fim = (
         ItemCronograma.objects.filter(concluido=False)
@@ -277,6 +406,7 @@ def gerar_cronograma(*, regenerar: bool = True, a_partir_de: date | None = None)
 def sincronizar_conclusao(topico: Topico, *, redistribuir: bool = True) -> dict | None:
     """Marca o item no cronograma e redistribui o restante a partir de hoje."""
     ItemCronograma.objects.filter(topico=topico, concluido=False).update(concluido=True)
+    avancar_ponteiro_ciclo(topico)
     if topico.status not in (Topico.Status.COMPLETO, Topico.Status.REVISADO):
         return None
     if not redistribuir:

@@ -10,9 +10,11 @@ from django.utils import timezone
 class Disciplina(models.Model):
     nome = models.CharField(max_length=120, unique=True)
     ordem = models.PositiveIntegerField(default=0)
+    # Menor = maior prioridade na prova (1 primeiro).
+    peso = models.PositiveIntegerField(default=50)
 
     class Meta:
-        ordering = ["ordem", "nome"]
+        ordering = ["peso", "ordem", "nome"]
 
     def __str__(self) -> str:
         return self.nome
@@ -217,6 +219,10 @@ class PlanoEstudo(models.Model):
         default=15,
         help_text="Minutos extras por aula para resolver questões",
     )
+    incluir_tempo_questoes = models.BooleanField(
+        default=True,
+        help_text="Se desmarcado, o cronograma usa só a duração do vídeo",
+    )
     data_inicio = models.DateField(null=True, blank=True)
     data_meta = models.DateField(
         null=True,
@@ -226,11 +232,15 @@ class PlanoEstudo(models.Model):
     modo_distribuicao = models.CharField(
         max_length=20,
         choices=[
-            ("intercalar", "Intercalar disciplinas"),
+            ("ciclo", "Ciclo de estudos (recomendado)"),
+            ("prioridade", "Prioridade na prova (uma matéria por vez)"),
+            ("intercalar", "Intercalar 1 a 1"),
             ("sequencial", "Ordem do edital"),
         ],
-        default="intercalar",
+        default="ciclo",
     )
+    # Posição no ciclo: ao concluir um tópico, avança; "Estudar agora" retoma daqui.
+    ciclo_ponteiro = models.PositiveIntegerField(default=0)
     gerado_em = models.DateTimeField(null=True, blank=True)
     atualizado_em = models.DateTimeField(auto_now=True)
 
